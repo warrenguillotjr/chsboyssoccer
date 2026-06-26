@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Covington High School Boys Soccer Program Management Platform">
+  <title>CHS Boys Soccer — Sign In</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+
+<div class="login-page">
+  <div class="login-card">
+
+    <!-- Logo -->
+    <img src="assets/logo.png"
+         alt="Covington Lions Logo"
+         class="login-logo"
+         onerror="this.style.display='none'">
+
+    <!-- Title -->
+    <div class="login-title">CHS Boys Soccer Program</div>
+    <div class="login-subtitle">Covington High School &nbsp;·&nbsp; District 6-I</div>
+
+    <hr class="login-divider">
+
+    <!-- Login Form -->
+    <form id="login-form" autocomplete="off" novalidate>
+
+      <label class="login-label" for="password-input">Access Password</label>
+      <input
+        type="password"
+        id="password-input"
+        class="login-input"
+        placeholder="Enter your password"
+        autocomplete="current-password"
+        required
+        autofocus>
+
+      <button type="submit" class="login-btn">Sign In</button>
+
+      <div id="login-error" class="login-error" role="alert">
+        Incorrect password. Please try again.
+      </div>
+
+    </form>
+
+    <!-- Footer note -->
+    <div class="login-footer">
+      <p>Players &amp; Parents: use the season password provided by your coach.</p>
+      <p style="margin-top:0.4rem;">
+        Need help? Contact Coach Guillot.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Toast container -->
+<div id="toast-container" class="toast-container"></div>
+
+<script src="app.js"></script>
+<script>
+  // If already logged in, redirect to correct dashboard
+  (function() {
+    const role = sessionStorage.getItem('chsSoccerRole');
+    if (role === 'coach')  window.location.href = 'coach.html';
+    if (role === 'player') window.location.href = 'player.html';
+  })();
+</script>
+
+</body>
+</html>

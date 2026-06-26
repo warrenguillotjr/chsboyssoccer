@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHS Boys Soccer — Select Player</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+
+<div class="player-select-page">
+  <div class="player-select-card">
+
+    <img src="assets/logo.png"
+         alt="Covington Lions Logo"
+         class="login-logo"
+         onerror="this.style.display='none'">
+
+    <h2>Who are you?</h2>
+    <p>Select your name to personalize your dashboard.</p>
+
+    <!-- Player dropdown -->
+    <div class="form-group">
+      <label class="form-label" for="player-select">Select your name</label>
+      <select id="player-select" class="form-control" style="font-size:1rem; padding:0.75rem 1rem;">
+        <option value="">— Choose your name —</option>
+      </select>
+    </div>
+
+    <div id="parent-note" style="display:none; margin-bottom:1rem;">
+      <div class="alert alert-info">
+        <span class="alert-icon">ℹ</span>
+        <div class="alert-body">
+          <div class="alert-title">Parent or Guardian?</div>
+          Select your player's name. You will see the same information they do.
+        </div>
+      </div>
+    </div>
+
+    <button id="continue-btn" class="login-btn" disabled onclick="continueToPortal()">
+      Continue →
+    </button>
+
+    <div style="margin-top:1.25rem;">
+      <button onclick="logout()" style="background:none;border:none;color:var(--gray-400);font-size:0.82rem;cursor:pointer;">
+        ← Back to Login
+      </button>
+    </div>
+
+    <div id="load-status" style="margin-top:1rem; font-size:0.82rem; color:var(--gray-400);">
+      Loading roster...
+    </div>
+
+  </div>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+
+<script src="app.js"></script>
+<script>
+  // Require player role to access this page
+  if (!requireAuth(['player'])) { /* redirect handled in requireAuth */ }
+
+  const selectEl  = document.getElementById('player-select');
+  const continueBtn = document.getElementById('continue-btn');
+  const loadStatus  = document.getElementById('load-status');
+
+  // Enable continue button when a player is selected
+  selectEl.addEventListener('change', () => {
+    continueBtn.disabled = !selectEl.value;
+    document.getElementById('parent-note').style.display = selectEl.value ? 'block' : 'none';
+  });
+
+  // Load player list from Google Sheets
+  async function loadPlayers() {
+    const players = await fetchSheetData('Players');
+    const active  = players.filter(p => p.ActiveStatus === 'Active' && p.LastName);
+    active.sort((a, b) => a.LastName.localeCompare(b.LastName));
+
+    if (active.length === 0) {
+      loadStatus.textContent = 'No players found. Please contact your coach.';
+      return;
+    }
+
+    active.forEach(p => {
+      const option = document.createElement('option');
+      const displayName = `${p.LastName}, ${p.PreferredName || p.FirstName}`;
+      option.value = displayName;
+      option.textContent = `${displayName}  (#${p.JerseyNumber || '—'} · ${p.Team})`;
+      selectEl.appendChild(option);
+    });
+
+    loadStatus.textContent = '';
+  }
+
+  function continueToPortal() {
+    const selected = selectEl.value;
+    if (!selected) return;
+    setSelectedPlayer(selected);
+    window.location.href = 'player.html';
+  }
+
+  loadPlayers();
+</script>
+
+</body>
+</html>
