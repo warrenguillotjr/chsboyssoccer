@@ -743,7 +743,7 @@ function buildTopbar() {
   topbar.innerHTML = `
     <div class="topbar-inner">
       <a class="topbar-brand" href="${role === 'coach' ? 'coach.html' : 'player.html'}">
-        <img src="assets/logo.png" alt="CHS Lions Logo" class="topbar-logo" onerror="this.style.display='none'">
+        <img src="assets/logo.gif" alt="CHS Lions Logo" class="topbar-logo" onerror="this.style.display='none'">
         <div class="topbar-name">
           CHS Boys Soccer
           <span>${CONFIG.SCHOOL_NAME} · ${CONFIG.DISTRICT}</span>
