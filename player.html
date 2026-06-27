@@ -5,67 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CHS Boys Soccer — Player Portal</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/logo.gif" type="image/png">
+  <link rel="icon" href="assets/logo.gif" type="image/gif">
 </head>
 <body>
 
-<!-- TOP NAVIGATION BAR -->
 <nav class="topbar" id="topbar"></nav>
 
-<!-- MAIN LAYOUT -->
 <div class="layout">
 
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
-
     <div class="sidebar-section">
       <div class="sidebar-label">Main</div>
-      <button class="sidebar-link active" data-section="dashboard" onclick="showSection('dashboard', this)">
+      <button class="sidebar-link active" data-section="dashboard" onclick="showSection('dashboard',this)">
         <span class="icon">🏠</span> Dashboard
       </button>
     </div>
-
     <div class="sidebar-section">
       <div class="sidebar-label">My Team</div>
-      <button class="sidebar-link" data-section="availability" onclick="showSection('availability', this)">
+      <button class="sidebar-link" data-section="availability" onclick="showSection('availability',this)">
         <span class="icon">✅</span> My Availability
       </button>
-      <button class="sidebar-link" data-section="schedule" onclick="showSection('schedule', this)">
+      <button class="sidebar-link" data-section="schedule" onclick="showSection('schedule',this)">
         <span class="icon">📅</span> Schedule
       </button>
-      <button class="sidebar-link" data-section="roster" onclick="showSection('roster', this)">
+      <button class="sidebar-link" data-section="roster" onclick="showSection('roster',this)">
         <span class="icon">👥</span> Team Roster
       </button>
-      <button class="sidebar-link" data-section="stats" onclick="showSection('stats', this)">
+      <button class="sidebar-link" data-section="stats" onclick="showSection('stats',this)">
         <span class="icon">📊</span> Stats
       </button>
     </div>
-
     <div class="sidebar-section">
       <div class="sidebar-label">Program</div>
-      <button class="sidebar-link" data-section="communication" onclick="showSection('communication', this)">
+      <button class="sidebar-link" data-section="communication" onclick="showSection('communication',this)">
         <span class="icon">📣</span> Announcements
       </button>
-      <button class="sidebar-link" data-section="booster" onclick="showSection('booster', this)">
+      <button class="sidebar-link" data-section="tournament" onclick="showSection('tournament',this)">
+        <span class="icon">🏆</span> Tournament Hub
+      </button>
+      <button class="sidebar-link" data-section="booster" onclick="showSection('booster',this)">
         <span class="icon">⭐</span> Booster Club
       </button>
-      <button class="sidebar-link" data-section="resources" onclick="showSection('resources', this)">
+      <button class="sidebar-link" data-section="resources" onclick="showSection('resources',this)">
         <span class="icon">📁</span> Resources
       </button>
-      <button class="sidebar-link" data-section="history" onclick="showSection('history', this)">
+      <button class="sidebar-link" data-section="history" onclick="showSection('history',this)">
         <span class="icon">🏅</span> Program History
       </button>
     </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label" style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid var(--gray-200);">
-        Tournament
-      </div>
-      <button class="sidebar-link" data-section="tournament" onclick="showSection('tournament', this)">
-        <span class="icon">🏆</span> Tournament Hub
-      </button>
-    </div>
-
   </aside>
 
   <!-- MAIN CONTENT -->
@@ -83,15 +71,13 @@
         </div>
       </div>
 
-      <!-- Schedule Change Alert Banner -->
       <div id="player-alert-banner"></div>
 
-      <!-- Stat Cards -->
       <div class="grid-4 mb-lg">
         <div class="stat-card">
-          <div class="stat-label">Season Record</div>
+          <div class="stat-label">Varsity Record</div>
           <div class="stat-value" id="p-stat-record">—</div>
-          <div class="stat-sub">Varsity W – L – T</div>
+          <div class="stat-sub">W – L – D</div>
         </div>
         <div class="stat-card gold">
           <div class="stat-label">Next Event</div>
@@ -100,7 +86,7 @@
         </div>
         <div class="stat-card green">
           <div class="stat-label">My Availability</div>
-          <div class="stat-value green" id="p-stat-avail" style="font-size:1rem;">—</div>
+          <div class="stat-value green" id="p-stat-avail" style="font-size:1rem;line-height:1.3;">—</div>
           <div class="stat-sub">for next event</div>
         </div>
         <div class="stat-card">
@@ -110,85 +96,65 @@
         </div>
       </div>
 
-      <!-- Two-column: schedule + announcements -->
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
             <h3>📅 Upcoming Events</h3>
             <button class="btn btn-outline btn-sm" onclick="showSection('schedule')">See all</button>
           </div>
-          <div id="p-dashboard-schedule">
-            <div class="loading-state"><div class="spinner"></div><span>Loading...</span></div>
-          </div>
+          <div id="p-dashboard-schedule"><div class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
         </div>
-
         <div class="card">
           <div class="card-header">
             <h3>📣 Announcements</h3>
             <button class="btn btn-outline btn-sm" onclick="showSection('communication')">See all</button>
           </div>
-          <div id="p-dashboard-announcements">
-            <div class="loading-state"><div class="spinner"></div><span>Loading...</span></div>
-          </div>
+          <div id="p-dashboard-announcements"><div class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
         </div>
       </div>
 
-      <!-- Quick availability for next event -->
       <div class="card mt-lg">
         <div class="card-header">
           <h3>✅ Quick Availability Check-In</h3>
           <button class="btn btn-outline btn-sm" onclick="showSection('availability')">All events</button>
         </div>
-        <div id="p-quick-avail">
-          <div class="loading-state"><div class="spinner"></div><span>Loading...</span></div>
-        </div>
+        <div id="p-quick-avail"><div class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
       </div>
-
     </section>
 
-    <!-- ==================== MY AVAILABILITY ==================== -->
+    <!-- ==================== AVAILABILITY ==================== -->
     <section id="section-availability" class="section-panel hidden">
       <div class="page-header">
         <h2>My Availability</h2>
-        <p>Let your coach know if you can make it to upcoming events. Tap a button to respond.</p>
+        <p>Let your coach know if you can make it to upcoming events. Please respond as early as possible.</p>
       </div>
-
       <div class="alert alert-info mb-lg">
         <span class="alert-icon">ℹ</span>
-        <div class="alert-body">
-          Please respond to all upcoming events as early as possible.
-          Your coach uses this information to plan practices and matchday rosters.
-        </div>
+        <div class="alert-body">Your coach uses your responses to plan practices and matchday rosters. Events within 2 days are highlighted — please respond urgently.</div>
       </div>
-
-      <div id="availability-cards">
-        <div class="loading-state"><div class="spinner"></div><span>Loading upcoming events...</span></div>
-      </div>
+      <div id="availability-cards"><div class="loading-state"><div class="spinner"></div><span>Loading upcoming events...</span></div></div>
     </section>
 
     <!-- ==================== SCHEDULE ==================== -->
     <section id="section-schedule" class="section-panel hidden">
       <div class="page-header">
         <h2>Schedule</h2>
-        <p>Practices, games, and team events.</p>
+        <p>Practices, games, tournaments, and team events.</p>
       </div>
-
       <div class="tabs" id="p-schedule-tabs">
         <button class="tab-btn" data-tab="p-tab-upcoming">Upcoming</button>
+        <button class="tab-btn" data-tab="p-tab-games">Games</button>
         <button class="tab-btn" data-tab="p-tab-all">Full Season</button>
         <button class="tab-btn" data-tab="p-tab-calendar">Calendar</button>
       </div>
-
       <div id="p-tab-upcoming" class="tab-panel"><div id="p-schedule-upcoming" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-games"    class="tab-panel"><div id="p-schedule-games"    class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
       <div id="p-tab-all"      class="tab-panel"><div id="p-schedule-all"      class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
       <div id="p-tab-calendar" class="tab-panel">
         <div class="card mt-md">
           <iframe src="https://calendar.google.com/calendar/embed?src=bfef8d3332e21e4920a3058aae7c9850a686fe2a06090f3ccbeb372922f20c67%40group.calendar.google.com&ctz=America%2FChicago&color=%23115DAF"
-            style="border:0; width:100%; height:500px; border-radius:8px;"
-            frameborder="0"
-            scrolling="no"
-            title="CHS Boys Soccer Schedule">
-          </iframe>
+            style="border:0;width:100%;height:500px;border-radius:8px;"
+            frameborder="0" scrolling="no" title="CHS Boys Soccer Schedule"></iframe>
         </div>
       </div>
     </section>
@@ -199,33 +165,29 @@
         <h2>Team Roster</h2>
         <p>Your teammates across all CHS Boys Soccer teams.</p>
       </div>
-
       <div class="tabs" id="p-roster-tabs">
-        <button class="tab-btn" data-tab="p-tab-r-all">All Players</button>
+        <button class="tab-btn" data-tab="p-tab-r-all">All</button>
         <button class="tab-btn" data-tab="p-tab-r-varsity">Varsity</button>
         <button class="tab-btn" data-tab="p-tab-r-jvblue">JV Blue</button>
         <button class="tab-btn" data-tab="p-tab-r-jvgold">JV Gold</button>
       </div>
-
-      <div id="p-tab-r-all"    class="tab-panel"><div id="p-roster-all"     class="loading-state"><div class="spinner"></div><span>Loading roster...</span></div></div>
-      <div id="p-tab-r-varsity"class="tab-panel"><div id="p-roster-varsity" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="p-tab-r-jvblue" class="tab-panel"><div id="p-roster-jvblue"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="p-tab-r-jvgold" class="tab-panel"><div id="p-roster-jvgold"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-r-all"     class="tab-panel"><div id="p-roster-all"     class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-r-varsity" class="tab-panel"><div id="p-roster-varsity" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-r-jvblue"  class="tab-panel"><div id="p-roster-jvblue"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-r-jvgold"  class="tab-panel"><div id="p-roster-jvgold"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
     </section>
 
     <!-- ==================== STATS ==================== -->
     <section id="section-stats" class="section-panel hidden">
       <div class="page-header">
         <h2>Season Statistics</h2>
-        <p>Team and individual performance this season.</p>
+        <p>Team and individual performance for the 2025–2026 season.</p>
       </div>
-
       <div class="tabs" id="p-stats-tabs">
         <button class="tab-btn" data-tab="p-tab-my-stats">My Stats</button>
         <button class="tab-btn" data-tab="p-tab-team-stats">Team Leaders</button>
         <button class="tab-btn" data-tab="p-tab-results">Match Results</button>
       </div>
-
       <div id="p-tab-my-stats"   class="tab-panel"><div id="p-my-stats"      class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
       <div id="p-tab-team-stats" class="tab-panel"><div id="p-team-stats"    class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
       <div id="p-tab-results"    class="tab-panel"><div id="p-match-results" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
@@ -237,8 +199,42 @@
         <h2>Announcements</h2>
         <p>Official program communications from your coaching staff.</p>
       </div>
-      <div id="p-announcements-list">
-        <div class="loading-state"><div class="spinner"></div><span>Loading announcements...</span></div>
+      <div id="p-announcements-list"><div class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+    </section>
+
+    <!-- ==================== TOURNAMENT ==================== -->
+    <section id="section-tournament" class="section-panel hidden">
+      <div class="page-header">
+        <h2>Tournament Hub</h2>
+        <p>Live schedules, results, and standings.</p>
+      </div>
+      <div class="tabs" id="p-tourn-tabs">
+        <button class="tab-btn" data-tab="p-tab-t-varsity">Varsity Tournament</button>
+        <button class="tab-btn" data-tab="p-tab-t-jv">JV Tournament</button>
+      </div>
+
+      <div id="p-tab-t-varsity" class="tab-panel">
+        <div class="card mt-md">
+          <div class="card-header"><h3>Varsity Tournament</h3></div>
+          <div class="tabs" id="p-vt-tabs" style="margin-top:0.5rem;">
+            <button class="tab-btn" data-tab="p-tab-vt-schedule">Schedule</button>
+            <button class="tab-btn" data-tab="p-tab-vt-standings">Standings</button>
+          </div>
+          <div id="p-tab-vt-schedule"  class="tab-panel"><div id="p-varsity-tourn-schedule"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+          <div id="p-tab-vt-standings" class="tab-panel"><div id="p-varsity-tourn-standings" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+        </div>
+      </div>
+
+      <div id="p-tab-t-jv" class="tab-panel">
+        <div class="card mt-md">
+          <div class="card-header"><h3>JV Tournament</h3></div>
+          <div class="tabs" id="p-jvt-tabs" style="margin-top:0.5rem;">
+            <button class="tab-btn" data-tab="p-tab-jvt-schedule">Schedule</button>
+            <button class="tab-btn" data-tab="p-tab-jvt-standings">Standings</button>
+          </div>
+          <div id="p-tab-jvt-schedule"  class="tab-panel"><div id="p-jv-tourn-schedule"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+          <div id="p-tab-jvt-standings" class="tab-panel"><div id="p-jv-tourn-standings" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+        </div>
       </div>
     </section>
 
@@ -248,18 +244,15 @@
         <h2>Booster Club</h2>
         <p>Support the Lions — Booster Club information and membership.</p>
       </div>
-
       <div class="tabs" id="p-booster-tabs">
         <button class="tab-btn" data-tab="p-tab-b-board">Board of Directors</button>
         <button class="tab-btn" data-tab="p-tab-b-members">Members</button>
         <button class="tab-btn" data-tab="p-tab-b-scholarship">Scherer Scholarship</button>
       </div>
-
-      <div id="p-tab-b-board"      class="tab-panel"><div id="p-booster-board"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="p-tab-b-members"    class="tab-panel"><div id="p-booster-members" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-b-board"       class="tab-panel"><div id="p-booster-board"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-b-members"     class="tab-panel"><div id="p-booster-members" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
       <div id="p-tab-b-scholarship" class="tab-panel">
-        <div class="card mt-md">
-          <div class="card-header"><h3>Dexter Scherer Memorial Scholarship</h3></div>
+        <div class="card mt-md"><div class="card-header"><h3>Dexter Scherer Memorial Scholarship</h3></div>
           <div class="empty-state"><div class="empty-state-icon">🎓</div><h3>Scholarship details coming soon</h3></div>
         </div>
       </div>
@@ -271,48 +264,21 @@
         <h2>Resources</h2>
         <p>Required forms and important links for players and parents.</p>
       </div>
-
-      <div class="card">
-        <div class="card-header"><h3>📋 Required Forms</h3></div>
-        <div style="padding:0.5rem 0;">
-          <div class="schedule-item">
-            <div class="schedule-info">
-              <div class="schedule-title">LHSAA Physical Examination Form</div>
-              <div class="schedule-meta">Required annually · Must be signed by licensed physician</div>
-            </div>
-            <a href="#" class="btn btn-outline btn-sm">Download</a>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-info">
-              <div class="schedule-title">Liability Waiver &amp; Release Form</div>
-              <div class="schedule-meta">Required per season · Parent/Guardian signature required</div>
-            </div>
-            <a href="#" class="btn btn-outline btn-sm">Download</a>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-info">
-              <div class="schedule-title">Emergency Contact Information Form</div>
-              <div class="schedule-meta">Required per season</div>
-            </div>
-            <a href="#" class="btn btn-outline btn-sm">Download</a>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header"><h3>📋 Required Forms</h3></div>
+          <div style="padding:0.5rem 0;">
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">LHSAA Physical Examination Form</div><div class="schedule-meta">Required annually · Physician signature required</div></div><a href="#" class="btn btn-outline btn-sm">Download</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Liability Waiver &amp; Release Form</div><div class="schedule-meta">Required per season · Parent/Guardian signature required</div></div><a href="#" class="btn btn-outline btn-sm">Download</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Emergency Contact Form</div><div class="schedule-meta">Required per season</div></div><a href="#" class="btn btn-outline btn-sm">Download</a></div>
           </div>
         </div>
-      </div>
-
-      <div class="card mt-lg">
-        <div class="card-header"><h3>🔗 Useful Links</h3></div>
-        <div style="padding:0.5rem 0;">
-          <div class="schedule-item">
-            <div class="schedule-info">
-              <div class="schedule-title">Covington High School</div>
-            </div>
-            <a href="https://covingtonhigh.stpsb.org" target="_blank" class="btn btn-outline btn-sm">Visit</a>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-info">
-              <div class="schedule-title">LHSAA Official Site</div>
-            </div>
-            <a href="https://www.lhsaa.org" target="_blank" class="btn btn-outline btn-sm">Visit</a>
+        <div class="card">
+          <div class="card-header"><h3>🔗 Useful Links</h3></div>
+          <div style="padding:0.5rem 0;">
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Covington High School</div></div><a href="https://covingtonhigh.stpsb.org" target="_blank" class="btn btn-outline btn-sm">Visit</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">LHSAA Official Site</div></div><a href="https://www.lhsaa.org" target="_blank" class="btn btn-outline btn-sm">Visit</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Public Program Site</div></div><a href="https://sites.google.com/view/chsboyssoccerprogram" target="_blank" class="btn btn-outline btn-sm">Visit</a></div>
           </div>
         </div>
       </div>
@@ -324,40 +290,16 @@
         <h2>Program History</h2>
         <p>The Covington Lions soccer legacy.</p>
       </div>
-
       <div class="tabs" id="p-history-tabs">
-        <button class="tab-btn" data-tab="p-tab-h-records">Season Records</button>
-        <button class="tab-btn" data-tab="p-tab-h-honors">Honors</button>
-        <button class="tab-btn" data-tab="p-tab-h-players">Past Players</button>
+        <button class="tab-btn" data-tab="p-tab-h-seasons">Season Records</button>
+        <button class="tab-btn" data-tab="p-tab-h-games">All-Time Results</button>
+        <button class="tab-btn" data-tab="p-tab-h-coaches">Coaches</button>
+        <button class="tab-btn" data-tab="p-tab-h-awards">Awards</button>
       </div>
-
-      <div id="p-tab-h-records" class="tab-panel"><div id="p-history-records" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="p-tab-h-honors"  class="tab-panel"><div id="p-history-honors"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="p-tab-h-players" class="tab-panel"><div id="p-history-players" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-    </section>
-
-    <!-- ==================== TOURNAMENT ==================== -->
-    <section id="section-tournament" class="section-panel hidden">
-      <div class="page-header">
-        <h2>Tournament Hub</h2>
-        <p>Live schedules, match results, and standings.</p>
-      </div>
-
-      <div class="tabs" id="p-tourn-tabs">
-        <button class="tab-btn" data-tab="p-tab-t-varsity">Varsity Tournament</button>
-        <button class="tab-btn" data-tab="p-tab-t-jv">JV Tournament</button>
-      </div>
-
-      <div id="p-tab-t-varsity" class="tab-panel">
-        <div class="card mt-md">
-          <div class="empty-state"><div class="empty-state-icon">🏆</div><h3>Tournament information coming soon</h3><p>Check back here for live schedules and standings.</p></div>
-        </div>
-      </div>
-      <div id="p-tab-t-jv" class="tab-panel">
-        <div class="card mt-md">
-          <div class="empty-state"><div class="empty-state-icon">🏆</div><h3>JV tournament information coming soon</h3></div>
-        </div>
-      </div>
+      <div id="p-tab-h-seasons" class="tab-panel"><div id="p-history-seasons"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-h-games"   class="tab-panel"><div id="p-history-all-games" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-h-coaches" class="tab-panel"><div id="p-history-coaches"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="p-tab-h-awards"  class="tab-panel"><div id="p-history-awards"    class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
     </section>
 
   </main>
@@ -367,20 +309,17 @@
 
 <script src="app.js"></script>
 <script>
-  // ============================================================
-  // PLAYER / PARENT DASHBOARD — PAGE CONTROLLER
-  // ============================================================
-
   requireAuth(['player']);
 
   const playerName = getSelectedPlayer();
-  const DATA = { players: [], schedule: [], announcements: [], availability: [], stats: [], matchLogs: [] };
-
-  // Set welcome heading
   if (playerName) {
-    const shortName = playerName.split(',')[0];
-    document.getElementById('welcome-heading').textContent = `Welcome, ${shortName}!`;
+    document.getElementById('welcome-heading').textContent = `Welcome, ${playerName.split(',')[0]}!`;
   }
+
+  const DATA = {
+    players:[], schedule:[], announcements:[], availability:[],
+    matchLogs:[], playerStats:[], tournament:[], boosterClub:[],
+  };
 
   // ---- Section Navigation ----
   function showSection(sectionId, clickedBtn) {
@@ -389,80 +328,77 @@
     if (target) target.classList.remove('hidden');
     document.querySelectorAll('.sidebar-link').forEach(b => b.classList.remove('active'));
     if (clickedBtn) clickedBtn.classList.add('active');
-    else {
-      const btn = document.querySelector(`[data-section="${sectionId}"]`);
-      if (btn) btn.classList.add('active');
-    }
+    else { const btn = document.querySelector(`[data-section="${sectionId}"]`); if (btn) btn.classList.add('active'); }
 
-    if (sectionId === 'availability')  loadAvailabilitySection();
-    if (sectionId === 'schedule')      { loadScheduleSection(); initTabs('p-schedule-tabs'); }
-    if (sectionId === 'roster')        { loadRosterSection();   initTabs('p-roster-tabs'); }
-    if (sectionId === 'stats')         { loadStatsSection();    initTabs('p-stats-tabs'); }
-    if (sectionId === 'communication') loadAnnouncementsSection();
-    if (sectionId === 'booster')       { loadBoosterSection();  initTabs('p-booster-tabs'); }
-    if (sectionId === 'history')       { loadHistorySection();  initTabs('p-history-tabs'); }
-    if (sectionId === 'tournament')    initTabs('p-tourn-tabs');
+    const loaders = {
+      availability:  () => loadAvailabilitySection(),
+      schedule:      () => { loadScheduleSection();  initTabs('p-schedule-tabs'); },
+      roster:        () => { loadRosterSection();    initTabs('p-roster-tabs'); },
+      stats:         () => { loadStatsSection();     initTabs('p-stats-tabs'); },
+      communication: () => loadAnnouncementsSection(),
+      tournament:    () => { loadTournamentSection();initTabs('p-tourn-tabs'); },
+      booster:       () => { loadBoosterSection();   initTabs('p-booster-tabs'); },
+      history:       () => { loadHistorySection();   initTabs('p-history-tabs'); },
+    };
+    if (loaders[sectionId]) loaders[sectionId]();
   }
 
   // ---- Dashboard ----
   async function loadDashboard() {
     const [players, schedule, announcements, availability, matchLogs, playerStats] = await Promise.all([
-      fetchSheetData('Players'),
-      fetchSheetData('Schedule'),
-      fetchSheetData('Announcements'),
-      fetchSheetData('Availability'),
-      fetchSheetData('Match_Logs'),
-      fetchSheetData('Player_Stats'),
+      fetchSheetData(TABS.PLAYERS),
+      fetchSheetData(TABS.SCHEDULE),
+      fetchSheetData(TABS.ANNOUNCEMENTS),
+      fetchSheetData(TABS.AVAILABILITY),
+      fetchSheetData(TABS.MATCH_LOGS),
+      fetchSheetData(TABS.PLAYER_STATS),
     ]);
+    DATA.players=players; DATA.schedule=schedule; DATA.announcements=announcements;
+    DATA.availability=availability; DATA.matchLogs=matchLogs; DATA.playerStats=playerStats;
 
-    DATA.players = players; DATA.schedule = schedule; DATA.announcements = announcements;
-    DATA.availability = availability; DATA.matchLogs = matchLogs; DATA.stats = playerStats;
-
-    // Team record
+    // Varsity record
     const rec = calcTeamRecord(matchLogs, 'Varsity');
     document.getElementById('p-stat-record').textContent =
-      matchLogs.length ? `${rec.wins}-${rec.losses}-${rec.ties}` : '0-0-0';
+      matchLogs.length ? formatRecord(rec) : '0-0-0';
 
     // Next event
-    const upcoming = schedule.filter(e => e.Date && !isPastDate(e.Date) && e.Status !== 'Cancelled')
-      .sort((a,b) => new Date(a.Date) - new Date(b.Date));
+    const upcoming = schedule
+      .filter(e => e.Date && !isPastDate(e.Date) && e.Status !== 'Cancelled')
+      .sort((a, b) => new Date(a.Date) - new Date(b.Date));
+
     if (upcoming.length > 0) {
       const next = upcoming[0];
       document.getElementById('p-stat-next').textContent      = next.EventTitle || '—';
-      document.getElementById('p-stat-next-date').textContent = formatDate(next.Date,'short');
+      document.getElementById('p-stat-next-date').textContent = formatDate(next.Date, 'short');
 
       // My availability for next event
       const myResp = availability.find(a => a.EventID === next.EventID && a.PlayerName === playerName);
       document.getElementById('p-stat-avail').textContent = myResp ? myResp.Response : 'Not set';
     }
 
-    // My stats
+    // My goals this season
     if (playerName) {
       const myTotals = calcPlayerSeasonStats(playerStats, playerName);
-      document.getElementById('p-stat-goals').textContent = myTotals.goals || '0';
+      document.getElementById('p-stat-goals').textContent = myTotals.goals !== undefined ? myTotals.goals : '0';
     }
 
     // Schedule change alerts
     const changes = schedule.filter(e => e.Status === 'Changed' || e.Status === 'Cancelled');
-    const banner = document.getElementById('player-alert-banner');
+    const banner  = document.getElementById('player-alert-banner');
     if (changes.length > 0) {
-      banner.innerHTML = changes.slice(0,2).map(c=>`
-        <div class="alert ${c.Status==='Cancelled'?'alert-danger':'alert-warning'}">
-          <span class="alert-icon">${c.Status==='Cancelled'?'✕':'⚠'}</span>
+      banner.innerHTML = changes.slice(0, 2).map(c => `
+        <div class="alert ${c.Status === 'Cancelled' ? 'alert-danger' : 'alert-warning'}">
+          <span class="alert-icon">${c.Status === 'Cancelled' ? '✕' : '⚠'}</span>
           <div class="alert-body">
-            <div class="alert-title">${c.Status}: ${c.EventTitle}</div>
-            ${c.ChangeNote?`<div>${c.ChangeNote}</div>`:''}
+            <div class="alert-title">${c.Status}: ${c.EventTitle} — ${formatDate(c.Date,'short')}</div>
+            ${c.ChangeNote ? `<div>${c.ChangeNote}</div>` : ''}
           </div>
         </div>`).join('');
     }
 
-    // Dashboard schedule
     renderSchedule('p-dashboard-schedule', schedule, { limit: 5 });
-
-    // Dashboard announcements
     renderAnnouncements('p-dashboard-announcements', announcements, 3);
 
-    // Quick availability — next event only
     if (upcoming.length > 0) {
       renderAvailabilityCards('p-quick-avail', [upcoming[0]], availability, playerName);
     } else {
@@ -470,20 +406,22 @@
     }
   }
 
+  // ---- Section Loaders ----
   async function loadAvailabilitySection() {
-    if (!DATA.schedule.length)     DATA.schedule     = await fetchSheetData('Schedule');
-    if (!DATA.availability.length) DATA.availability = await fetchSheetData('Availability');
+    if (!DATA.schedule.length)     DATA.schedule     = await fetchSheetData(TABS.SCHEDULE);
+    if (!DATA.availability.length) DATA.availability = await fetchSheetData(TABS.AVAILABILITY);
     renderAvailabilityCards('availability-cards', DATA.schedule, DATA.availability, playerName);
   }
 
   async function loadScheduleSection() {
-    if (!DATA.schedule.length) DATA.schedule = await fetchSheetData('Schedule');
-    renderSchedule('p-schedule-upcoming', DATA.schedule, { limit: 20 });
+    if (!DATA.schedule.length) DATA.schedule = await fetchSheetData(TABS.SCHEDULE);
+    renderSchedule('p-schedule-upcoming', DATA.schedule, { limit: 30 });
+    renderSchedule('p-schedule-games',    DATA.schedule.filter(e => e.EventType === 'Game'), { showPast: true });
     renderSchedule('p-schedule-all',      DATA.schedule, { showPast: true });
   }
 
   async function loadRosterSection() {
-    if (!DATA.players.length) DATA.players = await fetchSheetData('Players');
+    if (!DATA.players.length) DATA.players = await fetchSheetData(TABS.PLAYERS);
     renderRosterTable('p-roster-all',     DATA.players, {});
     renderRosterTable('p-roster-varsity', DATA.players, { teamFilter: 'Varsity' });
     renderRosterTable('p-roster-jvblue',  DATA.players, { teamFilter: 'JV Blue' });
@@ -491,128 +429,112 @@
   }
 
   async function loadStatsSection() {
-    if (!DATA.stats.length)     DATA.stats     = await fetchSheetData('Player_Stats');
-    if (!DATA.matchLogs.length) DATA.matchLogs = await fetchSheetData('Match_Logs');
-    if (!DATA.players.length)   DATA.players   = await fetchSheetData('Players');
+    const [playerStats, matchLogs, players] = await Promise.all([
+      DATA.playerStats.length ? Promise.resolve(DATA.playerStats) : fetchSheetData(TABS.PLAYER_STATS),
+      DATA.matchLogs.length   ? Promise.resolve(DATA.matchLogs)   : fetchSheetData(TABS.MATCH_LOGS),
+      DATA.players.length     ? Promise.resolve(DATA.players)     : fetchSheetData(TABS.PLAYERS),
+    ]);
+    DATA.playerStats=playerStats; DATA.matchLogs=matchLogs; DATA.players=players;
 
-    // My stats
+    // My stats card
     if (playerName) {
-      const myTotals = calcPlayerSeasonStats(DATA.stats, playerName);
-      const myPlayer = DATA.players.find(p => `${p.LastName}, ${p.PreferredName||p.FirstName}` === playerName);
+      const myPlayer = players.find(p => `${p.LastName}, ${p.PreferredName||p.FirstName}` === playerName);
+      const myTotals = calcPlayerSeasonStats(playerStats, playerName);
       document.getElementById('p-my-stats').innerHTML = `
         <div class="card">
-          <div class="card-header"><h3>${playerName}</h3>${myPlayer?`<span class="badge badge-${myPlayer.Team==='Varsity'?'blue':'gold'}">${myPlayer.Team}</span>`:''}</div>
-          <div class="grid-4" style="margin-bottom:1.25rem;">
-            <div class="stat-card"><div class="stat-label">Goals</div><div class="stat-value">${myTotals.goals}</div></div>
-            <div class="stat-card gold"><div class="stat-label">Assists</div><div class="stat-value gold">${myTotals.assists}</div></div>
-            <div class="stat-card green"><div class="stat-label">Shots</div><div class="stat-value green">${myTotals.shots}</div></div>
-            <div class="stat-card"><div class="stat-label">Minutes</div><div class="stat-value">${myTotals.minutesPlayed}</div></div>
+          <div class="card-header">
+            <h3>${playerName}</h3>
+            ${myPlayer ? `<span class="badge badge-${myPlayer.Team==='Varsity'?'blue':'gold'}">${myPlayer.Team} · #${myPlayer.JerseyNumber||'—'}</span>` : ''}
           </div>
-          <div>
-            ${myTotals.saves > 0 ? `<div class="stat-bar-row"><div class="stat-bar-label">Saves</div><div class="stat-bar-track"><div class="stat-bar-fill green" style="width:100%"></div></div><div class="stat-bar-val">${myTotals.saves}</div></div>` : ''}
-            ${myTotals.gamesPlayed===0 ? '<p style="text-align:center;color:var(--gray-400);">No stats recorded yet for this season.</p>' : ''}
-          </div>
+          ${myTotals.gamesPlayed === 0 ? `
+            <div class="empty-state"><div class="empty-state-icon">📊</div><h3>No stats recorded yet</h3><p>Stats will appear here once match data is entered by your coach.</p></div>
+          ` : `
+            <div class="grid-4" style="margin-bottom:1.25rem;">
+              <div class="stat-card"><div class="stat-label">Goals</div><div class="stat-value">${myTotals.goals}</div></div>
+              <div class="stat-card gold"><div class="stat-label">Assists</div><div class="stat-value gold">${myTotals.assists}</div></div>
+              <div class="stat-card green"><div class="stat-label">Appearances</div><div class="stat-value green">${myTotals.appearances}</div><div class="stat-sub">${myTotals.appearanceRate}% rate · ${myTotals.equivalentGames} eq. games</div></div>
+              <div class="stat-card"><div class="stat-label">Total Shots</div><div class="stat-value">${myTotals.totalShots}</div><div class="stat-sub">${myTotals.shotsOnTarget} on target (${myTotals.shotAccuracy}%)</div></div>
+            </div>
+            <div style="margin-bottom:1rem;">
+              <div class="stat-bar-row"><div class="stat-bar-label">Goals</div><div class="stat-bar-track"><div class="stat-bar-fill" style="width:${Math.min(myTotals.goals*10,100)}%"></div></div><div class="stat-bar-val">${myTotals.goals}</div></div>
+              <div class="stat-bar-row"><div class="stat-bar-label">Assists</div><div class="stat-bar-track"><div class="stat-bar-fill gold" style="width:${Math.min(myTotals.assists*10,100)}%"></div></div><div class="stat-bar-val">${myTotals.assists}</div></div>
+              <div class="stat-bar-row"><div class="stat-bar-label">Shot accuracy</div><div class="stat-bar-track"><div class="stat-bar-fill green" style="width:${myTotals.shotAccuracy}%"></div></div><div class="stat-bar-val">${myTotals.shotAccuracy}%</div></div>
+              <div class="stat-bar-row"><div class="stat-bar-label">Pass accuracy</div><div class="stat-bar-track"><div class="stat-bar-fill green" style="width:${myTotals.passAccuracy}%"></div></div><div class="stat-bar-val">${myTotals.passAccuracy}%</div></div>
+              ${myTotals.saves > 0 ? `<div class="stat-bar-row"><div class="stat-bar-label">Saves</div><div class="stat-bar-track"><div class="stat-bar-fill" style="width:${Math.min(myTotals.saves*5,100)}%"></div></div><div class="stat-bar-val">${myTotals.saves}</div></div>` : ''}
+            </div>
+            <div style="font-size:0.78rem;color:var(--gray-400);">
+              Games played: ${myTotals.gamesPlayed} ·
+              Tackles: ${myTotals.tackles} ·
+              Interceptions: ${myTotals.interceptions} ·
+              Clearances: ${myTotals.clearances} ·
+              Yellow cards: ${myTotals.yellowCards} ·
+              Red cards: ${myTotals.redCards}
+            </div>
+          `}
         </div>`;
     }
 
     // Team leaders
-    const activePlayers = DATA.players.filter(p => p.ActiveStatus==='Active' && p.LastName);
-    const statRows = activePlayers.map(p => {
-      const name = `${p.LastName}, ${p.PreferredName||p.FirstName}`;
-      return { name, jersey: p.JerseyNumber, team: p.Team, ...calcPlayerSeasonStats(DATA.stats, name) };
-    }).filter(p => p.gamesPlayed > 0).sort((a,b) => b.goals-a.goals || b.assists-a.assists);
-
-    if (!statRows.length) {
-      showEmpty('p-team-stats','📊','No stats recorded yet','Team stats will appear here once matches are logged.');
-    } else {
-      const rows = statRows.slice(0,15).map(s=>`<tr>
-        <td><strong>#${s.jersey||'—'}</strong></td>
-        <td>${s.name}</td>
-        <td><span class="badge badge-${s.team==='Varsity'?'blue':'gold'}">${s.team}</span></td>
-        <td>${s.gamesPlayed}</td>
-        <td><strong>${s.goals}</strong></td>
-        <td>${s.assists}</td>
-        <td>${s.shots}</td>
-        ${s.saves>0?`<td>${s.saves}</td>`:'<td>—</td>'}
-        <td>${s.minutesPlayed}</td>
-      </tr>`).join('');
-      document.getElementById('p-team-stats').innerHTML = `
-        <div class="table-wrapper"><table>
-          <thead><tr><th>#</th><th>Player</th><th>Team</th><th>GP</th><th>G</th><th>A</th><th>SH</th><th>SV</th><th>MIN</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table></div>`;
-    }
+    renderPlayerStatsTable('p-team-stats', players, playerStats);
 
     // Match results
-    if (!DATA.matchLogs.length) {
-      showEmpty('p-match-results','⚽','No matches played yet');
-    } else {
-      const rows = [...DATA.matchLogs].sort((a,b)=>new Date(b.Date)-new Date(a.Date)).map(m=>`<tr>
-        <td>${formatDate(m.Date,'short')}</td>
-        <td>${m.Opponent||'—'}</td>
-        <td><strong>${m.Score||'—'}</strong></td>
-        <td><span class="badge ${m.Result==='W'?'badge-green':m.Result==='L'?'badge-red':'badge-gray'}">${m.Result==='W'?'Win':m.Result==='L'?'Loss':m.Result==='T'?'Draw':'—'}</span></td>
-        <td><span class="badge badge-${m.Team==='Varsity'?'blue':'gold'}">${m.Team||'—'}</span></td>
-      </tr>`).join('');
-      document.getElementById('p-match-results').innerHTML = `
-        <div class="table-wrapper"><table>
-          <thead><tr><th>Date</th><th>Opponent</th><th>Score</th><th>Result</th><th>Team</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table></div>`;
-    }
+    renderMatchLogsTable('p-match-results', matchLogs);
   }
 
   async function loadAnnouncementsSection() {
-    if (!DATA.announcements.length) DATA.announcements = await fetchSheetData('Announcements');
+    if (!DATA.announcements.length) DATA.announcements = await fetchSheetData(TABS.ANNOUNCEMENTS);
     renderAnnouncements('p-announcements-list', DATA.announcements);
   }
 
+  async function loadTournamentSection() {
+    if (!DATA.tournament.length) DATA.tournament = await fetchSheetData(TABS.TOURNAMENT);
+    const varsityGames = DATA.tournament.filter(g => g.Type === 'Varsity');
+    const jvGames      = DATA.tournament.filter(g => g.Type === 'JV');
+    renderTournamentSchedule('p-varsity-tourn-schedule',  varsityGames);
+    renderTournamentStandings('p-varsity-tourn-standings', varsityGames);
+    renderTournamentSchedule('p-jv-tourn-schedule',       jvGames);
+    renderTournamentStandings('p-jv-tourn-standings',     jvGames);
+    initTabs('p-vt-tabs');
+    initTabs('p-jvt-tabs');
+  }
+
   async function loadBoosterSection() {
-    const members = await fetchSheetData('Booster_Club');
-    const board   = members.filter(m => m.BoardPosition && m.BoardPosition !== '');
-    const regular = members.filter(m => !m.BoardPosition || m.BoardPosition === '');
+    if (!DATA.boosterClub.length) DATA.boosterClub = await fetchSheetData(TABS.BOOSTER_CLUB);
+    const board   = DATA.boosterClub.filter(m => m.BoardPosition && m.BoardPosition.trim() !== '');
+    const members = DATA.boosterClub.filter(m => !m.BoardPosition || m.BoardPosition.trim() === '');
     const render  = (containerId, list, type) => {
       if (!list.length) { showEmpty(containerId,'⭐',`No ${type}s yet`); return; }
-      const rows = list.map(m=>`<tr>
+      const rows = list.map(m => `<tr>
         <td>${m.MemberName||'—'}</td>
         <td>${m.BoardPosition||m.Role||'Member'}</td>
         <td>${m.Email||'—'}</td>
+        <td>${m.MembershipYear||'—'}</td>
       </tr>`).join('');
       document.getElementById(containerId).innerHTML = `
         <div class="table-wrapper"><table>
-          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Year</th></tr></thead>
           <tbody>${rows}</tbody>
         </table></div>`;
     };
     render('p-booster-board',   board,   'board member');
-    render('p-booster-members', regular, 'member');
+    render('p-booster-members', members, 'member');
   }
 
   async function loadHistorySection() {
-    const history = await fetchSheetData('Program_History');
-    if (!history.length) {
-      ['p-history-records','p-history-honors','p-history-players'].forEach(id =>
-        showEmpty(id,'🏅','Coming soon','Program history will be added here.'));
-      return;
-    }
-    const rows = [...history].sort((a,b)=>b.Season-a.Season).map(h=>`<tr>
-      <td>${h.Season||'—'}</td>
-      <td>${h.VarsityRecord||'—'}</td>
-      <td>${h.Accomplishments||'—'}</td>
-      <td>${h.HeadCoach||'—'}</td>
-    </tr>`).join('');
-    document.getElementById('p-history-records').innerHTML = `
-      <div class="table-wrapper"><table>
-        <thead><tr><th>Season</th><th>Record</th><th>Accomplishments</th><th>Head Coach</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table></div>`;
-    showEmpty('p-history-honors','🏅','Honors coming soon');
-    showEmpty('p-history-players','👤','Past players coming soon');
+    const [seasons, allGames, coaches, awards] = await Promise.all([
+      fetchSheetData(TABS.HISTORY_SEASONS),
+      fetchSheetData(TABS.HISTORY_ALL_GAMES),
+      fetchSheetData(TABS.HISTORY_COACHES),
+      fetchSheetData(TABS.HISTORY_AWARDS),
+    ]);
+    renderSeasonHistory('p-history-seasons',      seasons);
+    renderAllGamesHistory('p-history-all-games',  allGames);
+    renderCoachHistory('p-history-coaches',        coaches);
+    renderAwardsHistory('p-history-awards',        awards);
   }
 
   // ---- Initialize ----
   loadDashboard();
 </script>
-
 </body>
 </html>
