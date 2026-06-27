@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CHS Boys Soccer — Coach Dashboard</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/logo.gif" type="image/png">
+  <link rel="icon" href="assets/logo.gif" type="image/gif">
 </head>
 <body>
 
-<!-- TOP NAVIGATION BAR -->
 <nav class="topbar" id="topbar"></nav>
 
-<!-- MAIN LAYOUT -->
 <div class="layout">
 
   <!-- SIDEBAR -->
@@ -20,56 +18,59 @@
 
     <div class="sidebar-section">
       <div class="sidebar-label">Main</div>
-      <button class="sidebar-link active" data-section="dashboard" onclick="showSection('dashboard', this)">
+      <button class="sidebar-link active" data-section="dashboard" onclick="showSection('dashboard',this)">
         <span class="icon">🏠</span> Dashboard
       </button>
     </div>
 
     <div class="sidebar-section">
       <div class="sidebar-label">Program Management</div>
-      <button class="sidebar-link" data-section="roster" onclick="showSection('roster', this)">
+      <button class="sidebar-link" data-section="roster" onclick="showSection('roster',this)">
         <span class="icon">👥</span> Roster Management
       </button>
-      <button class="sidebar-link" data-section="schedule" onclick="showSection('schedule', this)">
+      <button class="sidebar-link" data-section="contacts" onclick="showSection('contacts',this)">
+        <span class="icon">📞</span> Contacts
+      </button>
+      <button class="sidebar-link" data-section="compliance" onclick="showSection('compliance',this)">
+        <span class="icon">🔒</span> Compliance Tracking
+      </button>
+      <button class="sidebar-link" data-section="schedule" onclick="showSection('schedule',this)">
         <span class="icon">📅</span> Schedule &amp; Logistics
       </button>
-      <button class="sidebar-link" data-section="availability" onclick="showSection('availability', this)">
+      <button class="sidebar-link" data-section="availability" onclick="showSection('availability',this)">
         <span class="icon">✅</span> Player Availability
-        <span class="sidebar-badge" id="pending-badge" style="display:none">0</span>
+        <span class="sidebar-badge" id="pending-badge" style="display:none">!</span>
       </button>
-      <button class="sidebar-link" data-section="communication" onclick="showSection('communication', this)">
+      <button class="sidebar-link" data-section="communication" onclick="showSection('communication',this)">
         <span class="icon">📣</span> Communication Hub
       </button>
-      <button class="sidebar-link" data-section="equipment" onclick="showSection('equipment', this)">
+      <button class="sidebar-link" data-section="equipment" onclick="showSection('equipment',this)">
         <span class="icon">🎽</span> Equipment &amp; Inventory
       </button>
     </div>
 
     <div class="sidebar-section">
       <div class="sidebar-label">Coach Tools</div>
-      <button class="sidebar-link" data-section="performance" onclick="showSection('performance', this)">
+      <button class="sidebar-link" data-section="performance" onclick="showSection('performance',this)">
         <span class="icon">📊</span> Performance &amp; Stats
       </button>
-      <button class="sidebar-link" data-section="tournament" onclick="showSection('tournament', this)">
+      <button class="sidebar-link" data-section="tournament" onclick="showSection('tournament',this)">
         <span class="icon">🏆</span> Tournament Hub
       </button>
-      <button class="sidebar-link" data-section="scheduling-asst" onclick="showSection('scheduling-asst', this)">
+      <button class="sidebar-link" data-section="scheduling-asst" onclick="showSection('scheduling-asst',this)">
         <span class="icon">🗓</span> Scheduling Assistant
-      </button>
-      <button class="sidebar-link" data-section="compliance" onclick="showSection('compliance', this)">
-        <span class="icon">🔒</span> Compliance Tracking
       </button>
     </div>
 
     <div class="sidebar-section">
       <div class="sidebar-label">Program</div>
-      <button class="sidebar-link" data-section="booster" onclick="showSection('booster', this)">
+      <button class="sidebar-link" data-section="booster" onclick="showSection('booster',this)">
         <span class="icon">⭐</span> Booster Club
       </button>
-      <button class="sidebar-link" data-section="resources" onclick="showSection('resources', this)">
+      <button class="sidebar-link" data-section="resources" onclick="showSection('resources',this)">
         <span class="icon">📁</span> Resources
       </button>
-      <button class="sidebar-link" data-section="history" onclick="showSection('history', this)">
+      <button class="sidebar-link" data-section="history" onclick="showSection('history',this)">
         <span class="icon">🏅</span> Program History
       </button>
     </div>
@@ -91,15 +92,13 @@
         </div>
       </div>
 
-      <!-- Alert Banner for Schedule Changes -->
       <div id="alert-banner"></div>
 
-      <!-- Stat Cards -->
-      <div class="grid-4 mb-lg" id="stat-cards">
+      <div class="grid-4 mb-lg">
         <div class="stat-card">
           <div class="stat-label">Varsity Record</div>
           <div class="stat-value" id="stat-record">—</div>
-          <div class="stat-sub">W – L – T</div>
+          <div class="stat-sub">W – L – D</div>
         </div>
         <div class="stat-card gold">
           <div class="stat-label">Active Players</div>
@@ -107,18 +106,17 @@
           <div class="stat-sub">across all teams</div>
         </div>
         <div class="stat-card green">
-          <div class="stat-label">Compliance</div>
+          <div class="stat-label">Cleared</div>
           <div class="stat-value green" id="stat-compliance">—</div>
-          <div class="stat-sub">players cleared</div>
+          <div class="stat-sub">compliance status</div>
         </div>
-        <div class="stat-card red">
+        <div class="stat-card">
           <div class="stat-label">Next Event</div>
-          <div class="stat-value red" id="stat-next-event" style="font-size:1.1rem;line-height:1.3;">—</div>
+          <div class="stat-value" id="stat-next-event" style="font-size:1rem;line-height:1.3;">—</div>
           <div class="stat-sub" id="stat-next-date">—</div>
         </div>
       </div>
 
-      <!-- Two column: upcoming events + latest announcements -->
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
@@ -129,7 +127,6 @@
             <div class="loading-state"><div class="spinner"></div><span>Loading schedule...</span></div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header">
             <h3>📣 Latest Announcements</h3>
@@ -141,7 +138,6 @@
         </div>
       </div>
 
-      <!-- Availability Summary -->
       <div class="card mt-lg">
         <div class="card-header">
           <h3>✅ Availability — Next Event</h3>
@@ -151,33 +147,65 @@
           <div class="loading-state"><div class="spinner"></div><span>Loading availability...</span></div>
         </div>
       </div>
-
     </section>
 
-    <!-- ==================== ROSTER MANAGEMENT ==================== -->
+    <!-- ==================== ROSTER ==================== -->
     <section id="section-roster" class="section-panel hidden">
       <div class="page-header">
         <div class="page-header-row">
           <div>
             <h2>Roster Management</h2>
-            <p>Player profiles, contacts, and team assignments.</p>
+            <p>Player profiles and team assignments.</p>
           </div>
           <button class="btn btn-primary" onclick="openModal('add-player-modal')">+ Add Player</button>
         </div>
       </div>
-
-      <!-- Team filter tabs -->
       <div class="tabs" id="roster-tabs">
         <button class="tab-btn" data-tab="tab-all">All Players</button>
         <button class="tab-btn" data-tab="tab-varsity">Varsity</button>
         <button class="tab-btn" data-tab="tab-jvblue">JV Blue</button>
         <button class="tab-btn" data-tab="tab-jvgold">JV Gold</button>
+        <button class="tab-btn" data-tab="tab-inactive">Inactive</button>
       </div>
+      <div id="tab-all"      class="tab-panel"><div id="roster-all"     class="loading-state"><div class="spinner"></div><span>Loading roster...</span></div></div>
+      <div id="tab-varsity"  class="tab-panel"><div id="roster-varsity" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-jvblue"   class="tab-panel"><div id="roster-jvblue"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-jvgold"   class="tab-panel"><div id="roster-jvgold"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-inactive" class="tab-panel"><div id="roster-inactive"class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+    </section>
 
-      <div id="tab-all"    class="tab-panel"><div id="roster-all"     class="loading-state"><div class="spinner"></div><span>Loading roster...</span></div></div>
-      <div id="tab-varsity" class="tab-panel"><div id="roster-varsity" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="tab-jvblue" class="tab-panel"><div id="roster-jvblue"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="tab-jvgold" class="tab-panel"><div id="roster-jvgold"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+    <!-- ==================== CONTACTS ==================== -->
+    <section id="section-contacts" class="section-panel hidden">
+      <div class="page-header">
+        <h2>Parent &amp; Guardian Contacts</h2>
+        <p>Primary and secondary contact information linked to each player.</p>
+      </div>
+      <div id="contacts-list">
+        <div class="loading-state"><div class="spinner"></div><span>Loading contacts...</span></div>
+      </div>
+    </section>
+
+    <!-- ==================== COMPLIANCE ==================== -->
+    <section id="section-compliance" class="section-panel hidden">
+      <div class="page-header">
+        <h2>Compliance Tracking</h2>
+        <p>Physical exams, waivers, and medical clearances. LHSAA requirements.</p>
+      </div>
+      <div class="alert alert-warning mb-lg">
+        <span class="alert-icon">⚠</span>
+        <div class="alert-body">
+          <div class="alert-title">LHSAA Requirement</div>
+          All players must have a current physical examination and signed liability waiver on file before participating in any practice or game.
+        </div>
+      </div>
+      <div class="tabs" id="compliance-tabs">
+        <button class="tab-btn" data-tab="tab-comp-all">All Players</button>
+        <button class="tab-btn" data-tab="tab-comp-varsity">Varsity</button>
+        <button class="tab-btn" data-tab="tab-comp-jv">JV Teams</button>
+      </div>
+      <div id="tab-comp-all"    class="tab-panel"><div id="compliance-all"    class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-comp-varsity"class="tab-panel"><div id="compliance-varsity"class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-comp-jv"     class="tab-panel"><div id="compliance-jv"     class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
     </section>
 
     <!-- ==================== SCHEDULE ==================== -->
@@ -186,28 +214,26 @@
         <div class="page-header-row">
           <div>
             <h2>Schedule &amp; Logistics</h2>
-            <p>Master calendar, event management, and transportation.</p>
+            <p>Master calendar and event management.</p>
           </div>
           <button class="btn btn-primary" onclick="openModal('add-event-modal')">+ Add Event</button>
         </div>
       </div>
-
       <div class="tabs" id="schedule-tabs">
         <button class="tab-btn" data-tab="tab-upcoming">Upcoming</button>
         <button class="tab-btn" data-tab="tab-all-events">All Events</button>
+        <button class="tab-btn" data-tab="tab-games-only">Games Only</button>
         <button class="tab-btn" data-tab="tab-calendar">Calendar View</button>
       </div>
-
-      <div id="tab-upcoming"   class="tab-panel"><div id="schedule-upcoming" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="tab-all-events" class="tab-panel"><div id="schedule-all"      class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="tab-calendar"   class="tab-panel">
+      <div id="tab-upcoming"    class="tab-panel"><div id="schedule-upcoming" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-all-events"  class="tab-panel"><div id="schedule-all"      class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-games-only"  class="tab-panel"><div id="schedule-games"    class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-calendar"    class="tab-panel">
         <div class="card mt-md">
           <iframe src="https://calendar.google.com/calendar/embed?src=bfef8d3332e21e4920a3058aae7c9850a686fe2a06090f3ccbeb372922f20c67%40group.calendar.google.com&ctz=America%2FChicago&color=%23115DAF"
-            style="border:0; width:100%; height:500px; border-radius:8px;"
-            frameborder="0"
-            scrolling="no"
-            title="CHS Boys Soccer Program Calendar">
-          </iframe>
+            style="border:0;width:100%;height:500px;border-radius:8px;"
+            frameborder="0" scrolling="no"
+            title="CHS Boys Soccer Program Calendar"></iframe>
         </div>
       </div>
     </section>
@@ -216,40 +242,22 @@
     <section id="section-availability" class="section-panel hidden">
       <div class="page-header">
         <h2>Player Availability</h2>
-        <p>See who has responded for upcoming events. Color-coded by status.</p>
+        <p>Live response tracking for upcoming events.</p>
       </div>
-
-      <div id="availability-event-selector" class="mb-lg">
-        <div class="form-group" style="max-width:380px;">
-          <label class="form-label" for="avail-event-pick">Select Event</label>
-          <select id="avail-event-pick" class="form-control" onchange="loadAvailabilityForEvent(this.value)">
-            <option value="">— Choose an upcoming event —</option>
-          </select>
-        </div>
+      <div class="form-group" style="max-width:420px;" id="avail-selector">
+        <label class="form-label" for="avail-event-pick">Select Event</label>
+        <select id="avail-event-pick" class="form-control" onchange="loadAvailabilityForEvent(this.value)">
+          <option value="">— Choose an upcoming event —</option>
+        </select>
       </div>
-
       <div id="availability-summary" class="grid-3 mb-lg" style="display:none;">
-        <div class="stat-card green">
-          <div class="stat-label">Available</div>
-          <div class="stat-value green" id="avail-count-yes">0</div>
-        </div>
-        <div class="stat-card red">
-          <div class="stat-label">Unavailable</div>
-          <div class="stat-value red" id="avail-count-no">0</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">No Response</div>
-          <div class="stat-value" id="avail-count-pending">0</div>
-        </div>
+        <div class="stat-card green"><div class="stat-label">Available</div><div class="stat-value green" id="avail-count-yes">0</div></div>
+        <div class="stat-card red"><div class="stat-label">Unavailable</div><div class="stat-value red" id="avail-count-no">0</div></div>
+        <div class="stat-card"><div class="stat-label">No Response</div><div class="stat-value" id="avail-count-pending">0</div></div>
       </div>
-
       <div class="card">
         <div id="availability-roster">
-          <div class="empty-state">
-            <div class="empty-state-icon">✅</div>
-            <h3>Select an event above</h3>
-            <p>Player responses will appear here.</p>
-          </div>
+          <div class="empty-state"><div class="empty-state-icon">✅</div><h3>Select an event above</h3><p>Player responses will appear here.</p></div>
         </div>
       </div>
     </section>
@@ -260,20 +268,15 @@
         <div class="page-header-row">
           <div>
             <h2>Communication Hub</h2>
-            <p>Announcements and program-wide messages. No private direct messages.</p>
+            <p>Program-wide announcements. No private direct messages.</p>
           </div>
           <button class="btn btn-primary" onclick="openModal('add-announcement-modal')">+ New Announcement</button>
         </div>
       </div>
-
       <div class="alert alert-info mb-lg">
         <span class="alert-icon">ℹ</span>
-        <div class="alert-body">
-          All messages are program-wide. No private direct messages are permitted per program policy.
-          For urgent schedule changes, use the <strong>Schedule Change</strong> alert type.
-        </div>
+        <div class="alert-body">All messages are program-wide. For urgent schedule changes use the <strong>Schedule Change</strong> alert type — it appears highlighted for all users.</div>
       </div>
-
       <div id="announcements-list">
         <div class="loading-state"><div class="spinner"></div><span>Loading announcements...</span></div>
       </div>
@@ -290,14 +293,14 @@
           <button class="btn btn-primary" onclick="openModal('add-equipment-modal')">+ Add Item</button>
         </div>
       </div>
-
       <div class="tabs" id="equipment-tabs">
         <button class="tab-btn" data-tab="tab-kits">Kit Management</button>
         <button class="tab-btn" data-tab="tab-assets">Asset Tracking</button>
+        <button class="tab-btn" data-tab="tab-outstanding">Outstanding Returns</button>
       </div>
-
-      <div id="tab-kits"   class="tab-panel"><div id="equipment-kits"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="tab-assets" class="tab-panel"><div id="equipment-assets" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-kits"        class="tab-panel"><div id="equipment-kits"        class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-assets"      class="tab-panel"><div id="equipment-assets"      class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-outstanding" class="tab-panel"><div id="equipment-outstanding" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
     </section>
 
     <!-- ==================== PERFORMANCE & STATS ==================== -->
@@ -311,25 +314,22 @@
           <button class="btn btn-primary" onclick="openModal('add-match-modal')">+ Log Match</button>
         </div>
       </div>
-
       <div class="tabs" id="perf-tabs">
         <button class="tab-btn" data-tab="tab-match-logs">Match Logs</button>
-        <button class="tab-btn" data-tab="tab-player-stats">Player Stats</button>
+        <button class="tab-btn" data-tab="tab-player-stats">Season Stats</button>
         <button class="tab-btn" data-tab="tab-season-summary">Season Summary</button>
       </div>
-
-      <div id="tab-match-logs"     class="tab-panel"><div id="match-logs-list"    class="loading-state"><div class="spinner"></div><span>Loading match logs...</span></div></div>
-      <div id="tab-player-stats"   class="tab-panel"><div id="player-stats-list"  class="loading-state"><div class="spinner"></div><span>Loading stats...</span></div></div>
-      <div id="tab-season-summary" class="tab-panel"><div id="season-summary"     class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-match-logs"     class="tab-panel"><div id="match-logs-list"   class="loading-state"><div class="spinner"></div><span>Loading match logs...</span></div></div>
+      <div id="tab-player-stats"   class="tab-panel"><div id="player-stats-list" class="loading-state"><div class="spinner"></div><span>Loading stats...</span></div></div>
+      <div id="tab-season-summary" class="tab-panel"><div id="season-summary"    class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
     </section>
 
     <!-- ==================== TOURNAMENT HUB ==================== -->
     <section id="section-tournament" class="section-panel hidden">
       <div class="page-header">
         <h2>Tournament Hub</h2>
-        <p>Manage Varsity and JV tournaments. Public standings page updates automatically.</p>
+        <p>Manage Varsity and JV tournaments. Public standings update automatically.</p>
       </div>
-
       <div class="tabs" id="tournament-tabs">
         <button class="tab-btn" data-tab="tab-varsity-tourn">Varsity Tournament</button>
         <button class="tab-btn" data-tab="tab-jv-tourn">JV Tournament</button>
@@ -337,19 +337,29 @@
 
       <div id="tab-varsity-tourn" class="tab-panel">
         <div class="card mt-md">
-          <div class="card-header"><h3>Varsity Tournament</h3><button class="btn btn-primary btn-sm">Edit Tournament</button></div>
-          <div id="varsity-tournament-content">
-            <div class="empty-state"><div class="empty-state-icon">🏆</div><h3>No tournament set up yet</h3><p>Click Edit Tournament to add details, teams, and schedule.</p></div>
+          <div class="card-header">
+            <h3>Varsity Tournament</h3>
           </div>
+          <div class="tabs" id="varsity-tourn-tabs" style="margin-top:0.5rem;">
+            <button class="tab-btn" data-tab="tab-vt-schedule">Schedule</button>
+            <button class="tab-btn" data-tab="tab-vt-standings">Standings</button>
+          </div>
+          <div id="tab-vt-schedule"  class="tab-panel"><div id="varsity-tourn-schedule"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+          <div id="tab-vt-standings" class="tab-panel"><div id="varsity-tourn-standings" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
         </div>
       </div>
 
       <div id="tab-jv-tourn" class="tab-panel">
         <div class="card mt-md">
-          <div class="card-header"><h3>JV Tournament</h3><button class="btn btn-primary btn-sm">Edit Tournament</button></div>
-          <div id="jv-tournament-content">
-            <div class="empty-state"><div class="empty-state-icon">🏆</div><h3>No tournament set up yet</h3><p>Click Edit Tournament to add details, teams, and schedule.</p></div>
+          <div class="card-header">
+            <h3>JV Tournament</h3>
           </div>
+          <div class="tabs" id="jv-tourn-tabs" style="margin-top:0.5rem;">
+            <button class="tab-btn" data-tab="tab-jvt-schedule">Schedule</button>
+            <button class="tab-btn" data-tab="tab-jvt-standings">Standings</button>
+          </div>
+          <div id="tab-jvt-schedule"  class="tab-panel"><div id="jv-tourn-schedule"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+          <div id="tab-jvt-standings" class="tab-panel"><div id="jv-tourn-standings" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
         </div>
       </div>
     </section>
@@ -357,37 +367,13 @@
     <!-- ==================== SCHEDULING ASSISTANT ==================== -->
     <section id="section-scheduling-asst" class="section-panel hidden">
       <div class="page-header">
-        <div class="page-header-row">
-          <div>
-            <h2>Scheduling Assistant</h2>
-            <p>Game request tracker and opponent scheduling log.</p>
-          </div>
-          <button class="btn btn-primary" onclick="openModal('add-request-modal')">+ Add Request</button>
-        </div>
+        <h2>Scheduling Assistant</h2>
+        <p>Game request tracker and opponent scheduling log.</p>
       </div>
-
-      <div id="scheduling-requests">
-        <div class="loading-state"><div class="spinner"></div><span>Loading...</span></div>
-      </div>
-    </section>
-
-    <!-- ==================== COMPLIANCE ==================== -->
-    <section id="section-compliance" class="section-panel hidden">
-      <div class="page-header">
-        <h2>Compliance Tracking</h2>
-        <p>Physical exams, waivers, and medical clearances. LHSAA requirements.</p>
-      </div>
-
-      <div class="alert alert-warning mb-lg">
-        <span class="alert-icon">⚠</span>
-        <div class="alert-body">
-          <div class="alert-title">LHSAA Requirement</div>
-          All players must have a current physical examination and signed liability waiver on file before participating in any practice or game.
-        </div>
-      </div>
-
-      <div id="compliance-list">
-        <div class="loading-state"><div class="spinner"></div><span>Loading compliance records...</span></div>
+      <div class="empty-state">
+        <div class="empty-state-icon">🗓</div>
+        <h3>Scheduling Assistant</h3>
+        <p>Game request tracking and scheduling tools will be built in an upcoming session.</p>
       </div>
     </section>
 
@@ -397,21 +383,17 @@
         <h2>Booster Club</h2>
         <p>Board of directors, membership roster, and Dexter Scherer Scholarship.</p>
       </div>
-
       <div class="tabs" id="booster-tabs">
         <button class="tab-btn" data-tab="tab-board">Board of Directors</button>
         <button class="tab-btn" data-tab="tab-members">Membership Roster</button>
         <button class="tab-btn" data-tab="tab-scholarship">Scherer Scholarship</button>
       </div>
-
       <div id="tab-board"       class="tab-panel"><div id="booster-board"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
       <div id="tab-members"     class="tab-panel"><div id="booster-members" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
       <div id="tab-scholarship" class="tab-panel">
         <div class="card mt-md">
           <div class="card-header"><h3>Dexter Scherer Memorial Scholarship</h3></div>
-          <div id="scholarship-info">
-            <div class="empty-state"><div class="empty-state-icon">🎓</div><h3>Scholarship information coming soon</h3><p>Add scholarship details, eligibility requirements, and past recipients here.</p></div>
-          </div>
+          <div class="empty-state"><div class="empty-state-icon">🎓</div><h3>Scholarship information coming soon</h3><p>Add scholarship details here.</p></div>
         </div>
       </div>
     </section>
@@ -420,75 +402,25 @@
     <section id="section-resources" class="section-panel hidden">
       <div class="page-header">
         <h2>Resources</h2>
-        <p>Required forms, LHSAA documents, and program resources.</p>
+        <p>Required forms and important links.</p>
       </div>
-
       <div class="grid-2">
         <div class="card">
           <div class="card-header"><h3>📋 Required Forms</h3></div>
           <div style="padding:0.5rem 0;">
-            <div class="schedule-item">
-              <div class="schedule-info">
-                <div class="schedule-title">LHSAA Physical Examination Form</div>
-                <div class="schedule-meta">Required annually · Must be signed by licensed physician</div>
-              </div>
-              <a href="#" class="btn btn-outline btn-sm">Download</a>
-            </div>
-            <div class="schedule-item">
-              <div class="schedule-info">
-                <div class="schedule-title">Liability Waiver &amp; Release Form</div>
-                <div class="schedule-meta">Required per season · Parent/Guardian signature required</div>
-              </div>
-              <a href="#" class="btn btn-outline btn-sm">Download</a>
-            </div>
-            <div class="schedule-item">
-              <div class="schedule-info">
-                <div class="schedule-title">Emergency Contact Information Form</div>
-                <div class="schedule-meta">Required per season · Keep on file at all events</div>
-              </div>
-              <a href="#" class="btn btn-outline btn-sm">Download</a>
-            </div>
-            <div class="schedule-item">
-              <div class="schedule-info">
-                <div class="schedule-title">Media Release Form</div>
-                <div class="schedule-meta">Allows photos/video for program use</div>
-              </div>
-              <a href="#" class="btn btn-outline btn-sm">Download</a>
-            </div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">LHSAA Physical Examination Form</div><div class="schedule-meta">Required annually</div></div><a href="#" class="btn btn-outline btn-sm">Download</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Liability Waiver &amp; Release Form</div><div class="schedule-meta">Required per season</div></div><a href="#" class="btn btn-outline btn-sm">Download</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Emergency Contact Form</div><div class="schedule-meta">Required per season</div></div><a href="#" class="btn btn-outline btn-sm">Download</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Media Release Form</div><div class="schedule-meta">Photos and video authorization</div></div><a href="#" class="btn btn-outline btn-sm">Download</a></div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header"><h3>🔗 Important Links</h3></div>
           <div style="padding:0.5rem 0;">
-            <div class="schedule-item">
-              <div class="schedule-info">
-                <div class="schedule-title">LHSAA Official Website</div>
-                <div class="schedule-meta">Rules, eligibility, tournament info</div>
-              </div>
-              <a href="https://www.lhsaa.org" target="_blank" class="btn btn-outline btn-sm">Visit</a>
-            </div>
-            <div class="schedule-item">
-              <div class="schedule-info">
-                <div class="schedule-title">Covington High School</div>
-                <div class="schedule-meta">School homepage and athletics</div>
-              </div>
-              <a href="https://covingtonhigh.stpsb.org" target="_blank" class="btn btn-outline btn-sm">Visit</a>
-            </div>
-            <div class="schedule-item">
-              <div class="schedule-info">
-                <div class="schedule-title">NFHS — National Federation</div>
-                <div class="schedule-meta">Soccer rules and officiating resources</div>
-              </div>
-              <a href="https://www.nfhs.org" target="_blank" class="btn btn-outline btn-sm">Visit</a>
-            </div>
-            <div class="schedule-item">
-              <div class="schedule-info">
-                <div class="schedule-title">Public Program Site</div>
-                <div class="schedule-meta">Google Sites public-facing page</div>
-              </div>
-              <a href="https://sites.google.com/view/chsboyssoccerprogram" target="_blank" class="btn btn-outline btn-sm">Visit</a>
-            </div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">LHSAA Official Website</div></div><a href="https://www.lhsaa.org" target="_blank" class="btn btn-outline btn-sm">Visit</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Covington High School</div></div><a href="https://covingtonhigh.stpsb.org" target="_blank" class="btn btn-outline btn-sm">Visit</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">NFHS — National Federation</div></div><a href="https://www.nfhs.org" target="_blank" class="btn btn-outline btn-sm">Visit</a></div>
+            <div class="schedule-item"><div class="schedule-info"><div class="schedule-title">Public Program Site</div></div><a href="https://sites.google.com/view/chsboyssoccerprogram" target="_blank" class="btn btn-outline btn-sm">Visit</a></div>
           </div>
         </div>
       </div>
@@ -498,84 +430,45 @@
     <section id="section-history" class="section-panel hidden">
       <div class="page-header">
         <h2>Program History</h2>
-        <p>All-time records, honors, past players, and coaching history.</p>
+        <p>Season records, all-time results, coaching history, and awards.</p>
       </div>
-
       <div class="tabs" id="history-tabs">
-        <button class="tab-btn" data-tab="tab-records">All-Time Records</button>
-        <button class="tab-btn" data-tab="tab-honors">Honors</button>
-        <button class="tab-btn" data-tab="tab-past-players">Past Players</button>
-        <button class="tab-btn" data-tab="tab-past-coaches">Past Coaches</button>
+        <button class="tab-btn" data-tab="tab-seasons">Season Records</button>
+        <button class="tab-btn" data-tab="tab-all-games">All-Time Results</button>
+        <button class="tab-btn" data-tab="tab-coaches">Coaching History</button>
+        <button class="tab-btn" data-tab="tab-awards">Awards &amp; Honors</button>
       </div>
-
-      <div id="tab-records"      class="tab-panel"><div id="history-records"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="tab-honors"       class="tab-panel"><div id="history-honors"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="tab-past-players" class="tab-panel"><div id="history-players"  class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
-      <div id="tab-past-coaches" class="tab-panel">
-        <div class="card mt-md">
-          <div class="card-header"><h3>Coaching History</h3></div>
-          <div class="empty-state"><div class="empty-state-icon">🏅</div><h3>Coaching history coming soon</h3><p>Past coaches and tenures will be listed here.</p></div>
-        </div>
-      </div>
+      <div id="tab-seasons"   class="tab-panel"><div id="history-seasons"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-all-games" class="tab-panel"><div id="history-all-games" class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-coaches"   class="tab-panel"><div id="history-coaches"   class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
+      <div id="tab-awards"    class="tab-panel"><div id="history-awards"    class="loading-state"><div class="spinner"></div><span>Loading...</span></div></div>
     </section>
 
   </main>
 </div>
 
-<!-- Toast container -->
 <div id="toast-container" class="toast-container"></div>
 
 <!-- ==================== MODALS ==================== -->
 
-<!-- Add Announcement Modal -->
+<!-- Add Announcement -->
 <div id="add-announcement-modal" class="modal-backdrop" style="display:none;">
   <div class="modal">
-    <div class="modal-header">
-      <h3>New Announcement</h3>
-      <button class="modal-close" onclick="closeModal('add-announcement-modal')">✕</button>
-    </div>
+    <div class="modal-header"><h3>New Announcement</h3><button class="modal-close" onclick="closeModal('add-announcement-modal')">✕</button></div>
     <div class="modal-body">
-      <div class="form-group">
-        <label class="form-label">Title *</label>
-        <input type="text" id="ann-title" class="form-control" placeholder="e.g. Practice Cancelled — Thursday">
-      </div>
+      <div class="form-group"><label class="form-label">Title *</label><input type="text" id="ann-title" class="form-control" placeholder="e.g. Practice Cancelled — Thursday"></div>
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Date *</label>
-          <input type="date" id="ann-date" class="form-control">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Priority</label>
-          <select id="ann-priority" class="form-control">
-            <option value="Low">Low — General info</option>
-            <option value="Medium" selected>Medium — Important</option>
-            <option value="High">High — Urgent</option>
-          </select>
+        <div class="form-group"><label class="form-label">Date *</label><input type="date" id="ann-date" class="form-control"></div>
+        <div class="form-group"><label class="form-label">Priority</label>
+          <select id="ann-priority" class="form-control"><option value="Low">Low</option><option value="Medium" selected>Medium</option><option value="High">High — Urgent</option></select>
         </div>
       </div>
-      <div class="form-group">
-        <label class="form-label">Alert Type</label>
-        <select id="ann-type" class="form-control">
-          <option value="General">General</option>
-          <option value="Schedule Change">Schedule Change</option>
-          <option value="Cancellation">Cancellation</option>
-          <option value="Reminder">Reminder</option>
-          <option value="Urgent">Urgent</option>
-        </select>
+      <div class="form-group"><label class="form-label">Alert Type</label>
+        <select id="ann-type" class="form-control"><option value="General">General</option><option value="Schedule Change">Schedule Change</option><option value="Cancellation">Cancellation</option><option value="Reminder">Reminder</option><option value="Urgent">Urgent</option></select>
       </div>
-      <div class="form-group">
-        <label class="form-label">Message *</label>
-        <textarea id="ann-message" class="form-control" rows="4" placeholder="Type your announcement here..."></textarea>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Audience</label>
-        <select id="ann-audience" class="form-control">
-          <option value="All">All (Players, Parents, Coaches)</option>
-          <option value="Varsity">Varsity Only</option>
-          <option value="JV Blue">JV Blue Only</option>
-          <option value="JV Gold">JV Gold Only</option>
-          <option value="Coaches">Coaches Only</option>
-        </select>
+      <div class="form-group"><label class="form-label">Message *</label><textarea id="ann-message" class="form-control" rows="4"></textarea></div>
+      <div class="form-group"><label class="form-label">Audience</label>
+        <select id="ann-audience" class="form-control"><option value="All">All</option><option value="Varsity">Varsity Only</option><option value="JV Blue">JV Blue Only</option><option value="JV Gold">JV Gold Only</option><option value="Coaches">Coaches Only</option></select>
       </div>
     </div>
     <div class="modal-footer">
@@ -585,68 +478,31 @@
   </div>
 </div>
 
-<!-- Add Event Modal -->
+<!-- Add Event -->
 <div id="add-event-modal" class="modal-backdrop" style="display:none;">
   <div class="modal">
-    <div class="modal-header">
-      <h3>Add Event</h3>
-      <button class="modal-close" onclick="closeModal('add-event-modal')">✕</button>
-    </div>
+    <div class="modal-header"><h3>Add Event</h3><button class="modal-close" onclick="closeModal('add-event-modal')">✕</button></div>
     <div class="modal-body">
-      <div class="form-group">
-        <label class="form-label">Event Title *</label>
-        <input type="text" id="evt-title" class="form-control" placeholder="e.g. Varsity vs. Mandeville">
+      <div class="form-group"><label class="form-label">Event Title *</label><input type="text" id="evt-title" class="form-control"></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Date *</label><input type="date" id="evt-date" class="form-control"></div>
+        <div class="form-group"><label class="form-label">Time</label><input type="time" id="evt-time" class="form-control"></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Date *</label>
-          <input type="date" id="evt-date" class="form-control">
+        <div class="form-group"><label class="form-label">Event Type</label>
+          <select id="evt-type" class="form-control"><option value="Practice">Practice</option><option value="Game">Game</option><option value="Tournament">Tournament</option><option value="Scrimmage">Scrimmage</option><option value="Meeting">Team Meeting</option><option value="Other">Other</option></select>
         </div>
-        <div class="form-group">
-          <label class="form-label">Time</label>
-          <input type="time" id="evt-time" class="form-control">
+        <div class="form-group"><label class="form-label">Team</label>
+          <select id="evt-team" class="form-control"><option value="All">All Teams</option><option value="Varsity">Varsity</option><option value="JV Blue">JV Blue</option><option value="JV Gold">JV Gold</option></select>
         </div>
       </div>
+      <div class="form-group"><label class="form-label">Location</label><input type="text" id="evt-location" class="form-control" placeholder="e.g. Jack Salter Stadium"></div>
+      <div class="form-group"><label class="form-label">Opponent (games only)</label><input type="text" id="evt-opponent" class="form-control"></div>
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Event Type *</label>
-          <select id="evt-type" class="form-control">
-            <option value="Practice">Practice</option>
-            <option value="Game">Game</option>
-            <option value="Tournament">Tournament</option>
-            <option value="Meeting">Team Meeting</option>
-            <option value="Other">Other</option>
-          </select>
+        <div class="form-group"><label class="form-label">Status</label>
+          <select id="evt-status" class="form-control"><option value="Scheduled">Scheduled</option><option value="Changed">Changed</option><option value="Cancelled">Cancelled</option><option value="Postponed">Postponed</option></select>
         </div>
-        <div class="form-group">
-          <label class="form-label">Team</label>
-          <select id="evt-team" class="form-control">
-            <option value="All">All Teams</option>
-            <option value="Varsity">Varsity</option>
-            <option value="JV Blue">JV Blue</option>
-            <option value="JV Gold">JV Gold</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Location</label>
-        <input type="text" id="evt-location" class="form-control" placeholder="e.g. Jack Salter Stadium">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Opponent (games only)</label>
-        <input type="text" id="evt-opponent" class="form-control" placeholder="e.g. Mandeville High School">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Status</label>
-        <select id="evt-status" class="form-control">
-          <option value="Scheduled">Scheduled</option>
-          <option value="Changed">Changed</option>
-          <option value="Cancelled">Cancelled</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Change Note (if applicable)</label>
-        <input type="text" id="evt-change-note" class="form-control" placeholder="e.g. Time changed from 5pm to 6pm">
+        <div class="form-group"><label class="form-label">Change Note</label><input type="text" id="evt-change-note" class="form-control" placeholder="e.g. Time changed to 6pm"></div>
       </div>
     </div>
     <div class="modal-footer">
@@ -656,80 +512,49 @@
   </div>
 </div>
 
-<!-- Add Player Modal -->
+<!-- Add Player -->
 <div id="add-player-modal" class="modal-backdrop" style="display:none;">
   <div class="modal">
-    <div class="modal-header">
-      <h3>Add Player</h3>
-      <button class="modal-close" onclick="closeModal('add-player-modal')">✕</button>
-    </div>
+    <div class="modal-header"><h3>Add Player</h3><button class="modal-close" onclick="closeModal('add-player-modal')">✕</button></div>
     <div class="modal-body">
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Last Name *</label>
-          <input type="text" id="pl-last" class="form-control">
-        </div>
-        <div class="form-group">
-          <label class="form-label">First Name *</label>
-          <input type="text" id="pl-first" class="form-control">
+        <div class="form-group"><label class="form-label">Last Name *</label><input type="text" id="pl-last" class="form-control"></div>
+        <div class="form-group"><label class="form-label">First Name *</label><input type="text" id="pl-first" class="form-control"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Preferred Name</label><input type="text" id="pl-preferred" class="form-control"></div>
+        <div class="form-group"><label class="form-label">Date of Birth</label><input type="date" id="pl-dob" class="form-control"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Jersey Number</label><input type="number" id="pl-jersey" class="form-control" min="0" max="99"></div>
+        <div class="form-group"><label class="form-label">Grade</label>
+          <select id="pl-grade" class="form-control"><option value="">Select</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Preferred Name</label>
-          <input type="text" id="pl-preferred" class="form-control" placeholder="If different from first name">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Jersey Number</label>
-          <input type="number" id="pl-jersey" class="form-control" min="0" max="99">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Primary Position</label>
+        <div class="form-group"><label class="form-label">Primary Position</label>
           <select id="pl-position" class="form-control">
             <option value="">Select position</option>
-            <option>Goalkeeper</option>
-            <option>Center Back</option>
-            <option>Right Back</option>
-            <option>Left Back</option>
-            <option>Defensive Midfielder</option>
-            <option>Central Midfielder</option>
-            <option>Attacking Midfielder</option>
-            <option>Right Midfielder</option>
-            <option>Left Midfielder</option>
-            <option>Right Wing</option>
-            <option>Left Wing</option>
-            <option>Striker</option>
-            <option>Forward</option>
+            <option>Goalkeeper</option><option>Center Back</option><option>Right Back</option><option>Left Back</option>
+            <option>Defensive Midfielder</option><option>Central Midfielder</option><option>Attacking Midfielder</option>
+            <option>Right Midfielder</option><option>Left Midfielder</option>
+            <option>Right Wing</option><option>Left Wing</option><option>Striker</option><option>Forward</option>
           </select>
         </div>
-        <div class="form-group">
-          <label class="form-label">Team</label>
-          <select id="pl-team" class="form-control">
-            <option value="Varsity">Varsity</option>
-            <option value="JV Blue">JV Blue</option>
-            <option value="JV Gold">JV Gold</option>
+        <div class="form-group"><label class="form-label">Secondary Position</label>
+          <select id="pl-position2" class="form-control">
+            <option value="None">None</option>
+            <option>Goalkeeper</option><option>Center Back</option><option>Right Back</option><option>Left Back</option>
+            <option>Defensive Midfielder</option><option>Central Midfielder</option><option>Attacking Midfielder</option>
+            <option>Right Midfielder</option><option>Left Midfielder</option>
+            <option>Right Wing</option><option>Left Wing</option><option>Striker</option><option>Forward</option>
           </select>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Grade Level</label>
-          <select id="pl-grade" class="form-control">
-            <option value="">Select grade</option>
-            <option>9th</option><option>10th</option><option>11th</option><option>12th</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Date of Birth</label>
-          <input type="date" id="pl-dob" class="form-control">
-        </div>
+      <div class="form-group"><label class="form-label">Team</label>
+        <select id="pl-team" class="form-control"><option value="Varsity">Varsity</option><option value="JV Blue">JV Blue</option><option value="JV Gold">JV Gold</option></select>
       </div>
-      <div class="form-group">
-        <label class="form-label">Notes</label>
-        <textarea id="pl-notes" class="form-control" rows="2" placeholder="Any additional notes..."></textarea>
-      </div>
+      <div class="form-group"><label class="form-label">Notes</label><textarea id="pl-notes" class="form-control" rows="2"></textarea></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeModal('add-player-modal')">Cancel</button>
@@ -738,122 +563,144 @@
   </div>
 </div>
 
+<!-- Log Match -->
+<div id="add-match-modal" class="modal-backdrop" style="display:none;">
+  <div class="modal">
+    <div class="modal-header"><h3>Log Match</h3><button class="modal-close" onclick="closeModal('add-match-modal')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Date *</label><input type="date" id="match-date" class="form-control"></div>
+        <div class="form-group"><label class="form-label">Team</label>
+          <select id="match-team" class="form-control"><option value="Varsity">Varsity</option><option value="JV Blue">JV Blue</option><option value="JV Gold">JV Gold</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">Opponent *</label><input type="text" id="match-opponent" class="form-control"></div>
+      <div class="form-group"><label class="form-label">Location</label><input type="text" id="match-location" class="form-control" placeholder="e.g. Jack Salter Stadium"></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">CHS Score *</label><input type="number" id="match-chs-score" class="form-control" min="0" value="0"></div>
+        <div class="form-group"><label class="form-label">Opponent Score *</label><input type="number" id="match-opp-score" class="form-control" min="0" value="0"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Result</label>
+        <select id="match-result" class="form-control"><option value="W">W — Win</option><option value="L">L — Loss</option><option value="D">D — Draw</option></select>
+      </div>
+      <div class="form-group"><label class="form-label">Notes</label><textarea id="match-notes" class="form-control" rows="2" placeholder="Formation used, key moments, coaching notes..."></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('add-match-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveMatch()">Save Match</button>
+    </div>
+  </div>
+</div>
+
 <script src="app.js"></script>
 <script>
-  // ============================================================
-  // COACH DASHBOARD — PAGE CONTROLLER
-  // ============================================================
-
-  // Require coach role
   requireAuth(['coach']);
 
-  // Data cache — loaded once per session
-  const DATA = { players: [], schedule: [], announcements: [], availability: [], compliance: [], stats: [], matchLogs: [], equipment: [] };
+  // Data cache
+  const DATA = {
+    players:[], contacts:[], compliance:[], schedule:[],
+    availability:[], announcements:[], matchLogs:[],
+    playerStats:[], equipment:[], tournament:[],
+    boosterClub:[], historySeason:[], historyGames:[],
+    historyCoaches:[], historyAwards:[],
+  };
 
   // ---- Section Navigation ----
   function showSection(sectionId, clickedBtn) {
     document.querySelectorAll('.section-panel').forEach(s => s.classList.add('hidden'));
     const target = document.getElementById('section-' + sectionId);
     if (target) target.classList.remove('hidden');
-
     document.querySelectorAll('.sidebar-link').forEach(b => b.classList.remove('active'));
     if (clickedBtn) clickedBtn.classList.add('active');
-    else {
-      const btn = document.querySelector(`[data-section="${sectionId}"]`);
-      if (btn) btn.classList.add('active');
-    }
+    else { const btn = document.querySelector(`[data-section="${sectionId}"]`); if (btn) btn.classList.add('active'); }
 
-    // Lazy-load section data
-    if (sectionId === 'roster')        loadRosterSection();
-    if (sectionId === 'schedule')      { loadScheduleSection(); initTabs('schedule-tabs'); }
-    if (sectionId === 'availability')  loadAvailabilitySection();
-    if (sectionId === 'communication') loadCommunicationSection();
-    if (sectionId === 'equipment')     { loadEquipmentSection(); initTabs('equipment-tabs'); }
-    if (sectionId === 'performance')   { loadPerformanceSection(); initTabs('perf-tabs'); }
-    if (sectionId === 'compliance')    loadComplianceSection();
-    if (sectionId === 'booster')       { loadBoosterSection(); initTabs('booster-tabs'); }
-    if (sectionId === 'history')       { loadHistorySection(); initTabs('history-tabs'); }
-    if (sectionId === 'tournament')    initTabs('tournament-tabs');
+    const loaders = {
+      roster:          () => { loadRosterSection();      initTabs('roster-tabs'); },
+      contacts:        () => loadContactsSection(),
+      compliance:      () => { loadComplianceSection();  initTabs('compliance-tabs'); },
+      schedule:        () => { loadScheduleSection();    initTabs('schedule-tabs'); },
+      availability:    () => loadAvailabilitySection(),
+      communication:   () => loadCommunicationSection(),
+      equipment:       () => { loadEquipmentSection();   initTabs('equipment-tabs'); },
+      performance:     () => { loadPerformanceSection(); initTabs('perf-tabs'); },
+      tournament:      () => { loadTournamentSection();  initTabs('tournament-tabs'); },
+      booster:         () => { loadBoosterSection();     initTabs('booster-tabs'); },
+      history:         () => { loadHistorySection();     initTabs('history-tabs'); },
+    };
+    if (loaders[sectionId]) loaders[sectionId]();
   }
 
-  // ---- Dashboard Load ----
+  // ---- Dashboard ----
   async function loadDashboard() {
-    const [players, schedule, announcements, availability, compliance] = await Promise.all([
-      fetchSheetData('Players'),
-      fetchSheetData('Schedule'),
-      fetchSheetData('Announcements'),
-      fetchSheetData('Availability'),
-      fetchSheetData('Compliance'),
+    const [players, schedule, announcements, availability, compliance, matchLogs] = await Promise.all([
+      fetchSheetData(TABS.PLAYERS),
+      fetchSheetData(TABS.SCHEDULE),
+      fetchSheetData(TABS.ANNOUNCEMENTS),
+      fetchSheetData(TABS.AVAILABILITY),
+      fetchSheetData(TABS.COMPLIANCE),
+      fetchSheetData(TABS.MATCH_LOGS),
     ]);
 
-    DATA.players      = players;
-    DATA.schedule     = schedule;
-    DATA.announcements= announcements;
-    DATA.availability = availability;
-    DATA.compliance   = compliance;
+    DATA.players=players; DATA.schedule=schedule; DATA.announcements=announcements;
+    DATA.availability=availability; DATA.compliance=compliance; DATA.matchLogs=matchLogs;
 
-    // Stat: Active players
-    const activePlayers = players.filter(p => p.ActiveStatus === 'Active');
-    document.getElementById('stat-players').textContent = activePlayers.length || '—';
+    // Active players count
+    const active = players.filter(p => p.ActiveStatus === 'Active');
+    document.getElementById('stat-players').textContent = active.length || '—';
 
-    // Stat: Varsity record from match logs
-    const matchLogs = await fetchSheetData('Match_Logs');
-    DATA.matchLogs = matchLogs;
+    // Varsity record
     const rec = calcTeamRecord(matchLogs, 'Varsity');
     document.getElementById('stat-record').textContent =
-      matchLogs.length ? `${rec.wins}-${rec.losses}-${rec.ties}` : '0-0-0';
+      matchLogs.length ? formatRecord(rec) : '0-0-0';
 
-    // Stat: Compliance
+    // Compliance
     const cleared = compliance.filter(c => c.ClearanceStatus === 'Cleared').length;
     document.getElementById('stat-compliance').textContent =
-      compliance.length ? `${cleared}/${activePlayers.length}` : '—';
+      compliance.length ? `${cleared}/${active.length}` : `0/${active.length}`;
 
-    // Stat: Next event
-    const upcoming = schedule.filter(e => e.Date && !isPastDate(e.Date) && e.Status !== 'Cancelled')
-      .sort((a,b) => new Date(a.Date) - new Date(b.Date));
+    // Next event
+    const upcoming = schedule
+      .filter(e => e.Date && !isPastDate(e.Date) && e.Status !== 'Cancelled')
+      .sort((a, b) => new Date(a.Date) - new Date(b.Date));
     if (upcoming.length > 0) {
       document.getElementById('stat-next-event').textContent = upcoming[0].EventTitle || '—';
       document.getElementById('stat-next-date').textContent  = formatDate(upcoming[0].Date, 'short');
     }
 
-    // Check for recent schedule changes
+    // Schedule change alerts
     const changes = schedule.filter(e => e.Status === 'Changed' || e.Status === 'Cancelled');
-    const alertBanner = document.getElementById('alert-banner');
+    const banner  = document.getElementById('alert-banner');
     if (changes.length > 0) {
-      alertBanner.innerHTML = changes.slice(0,2).map(c => `
+      banner.innerHTML = changes.slice(0, 3).map(c => `
         <div class="alert ${c.Status === 'Cancelled' ? 'alert-danger' : 'alert-warning'}">
           <span class="alert-icon">${c.Status === 'Cancelled' ? '✕' : '⚠'}</span>
           <div class="alert-body">
-            <div class="alert-title">${c.Status}: ${c.EventTitle}</div>
+            <div class="alert-title">${c.Status}: ${c.EventTitle} — ${formatDate(c.Date,'short')}</div>
             ${c.ChangeNote ? `<div>${c.ChangeNote}</div>` : ''}
           </div>
         </div>`).join('');
     }
 
-    // Dashboard: upcoming schedule (next 5)
     renderSchedule('dashboard-schedule', schedule, { limit: 5 });
-
-    // Dashboard: latest announcements (3)
     renderAnnouncements('dashboard-announcements', announcements, 3);
 
-    // Dashboard: availability for next event
     if (upcoming.length > 0) {
-      const nextEvent = upcoming[0];
-      const responses = availability.filter(a => a.EventID === nextEvent.EventID);
-      renderAvailabilitySummary('dashboard-availability', activePlayers, responses, nextEvent.EventTitle);
+      const next = upcoming[0];
+      const responses = availability.filter(a => a.EventID === next.EventID);
+      renderAvailSummaryDash('dashboard-availability', active, responses, next.EventTitle);
     } else {
       showEmpty('dashboard-availability', '📅', 'No upcoming events', 'Availability will show here for the next event.');
     }
   }
 
-  function renderAvailabilitySummary(containerId, players, responses, eventTitle) {
+  function renderAvailSummaryDash(containerId, players, responses, eventTitle) {
     const container = document.getElementById(containerId);
     if (!container) return;
     const responseMap = {};
     responses.forEach(r => { responseMap[r.PlayerName] = r.Response; });
 
-    const varsity = players.filter(p => p.Team === 'Varsity' && p.ActiveStatus === 'Active');
-    if (varsity.length === 0) { showEmpty(containerId, '👥', 'No Varsity players found'); return; }
+    const varsity = players.filter(p => p.Team === 'Varsity');
+    if (!varsity.length) { showEmpty(containerId, '👥', 'No Varsity players yet'); return; }
 
     let yes=0, no=0, unsure=0, pending=0;
     const rows = varsity.map(p => {
@@ -865,16 +712,16 @@
       else pending++;
       const cls = resp === 'Available' ? 'badge-available' : resp === 'Unavailable' ? 'badge-unavailable' : resp === 'Unsure' ? 'badge-unsure' : 'badge-pending';
       return `<div class="avail-player-row">
-        <span class="avail-player-name">#${p.JerseyNumber || '—'} ${name}</span>
+        <span class="avail-player-name">#${p.JerseyNumber||'—'} ${name}</span>
         <span class="badge ${cls}">${resp}</span>
       </div>`;
     }).join('');
 
     container.innerHTML = `
       <p style="font-size:0.82rem;color:var(--gray-400);margin-bottom:0.75rem;">Varsity · ${eventTitle}</p>
-      <div style="display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+      <div style="display:flex;gap:0.75rem;margin-bottom:1rem;flex-wrap:wrap;">
         <span class="badge badge-available">✓ ${yes} Available</span>
-        <span class="badge badge-unavailable">✕ ${no} Unavailable</span>
+        <span class="badge badge-unavailable">✕ ${no} Can't Make It</span>
         <span class="badge badge-unsure">? ${unsure} Unsure</span>
         <span class="badge badge-pending">⋯ ${pending} No Response</span>
       </div>
@@ -883,26 +730,83 @@
 
   // ---- Section Loaders ----
   async function loadRosterSection() {
-    if (!DATA.players.length) DATA.players = await fetchSheetData('Players');
-    renderRosterTable('roster-all',    DATA.players, {});
-    renderRosterTable('roster-varsity',DATA.players, { teamFilter: 'Varsity' });
-    renderRosterTable('roster-jvblue', DATA.players, { teamFilter: 'JV Blue' });
-    renderRosterTable('roster-jvgold', DATA.players, { teamFilter: 'JV Gold' });
-    initTabs('roster-tabs');
+    if (!DATA.players.length) DATA.players = await fetchSheetData(TABS.PLAYERS);
+    renderRosterTable('roster-all',     DATA.players, {});
+    renderRosterTable('roster-varsity', DATA.players, { teamFilter: 'Varsity' });
+    renderRosterTable('roster-jvblue',  DATA.players, { teamFilter: 'JV Blue' });
+    renderRosterTable('roster-jvgold',  DATA.players, { teamFilter: 'JV Gold' });
+    renderRosterTable('roster-inactive',DATA.players, { showInactive: true });
+  }
+
+  async function loadContactsSection() {
+    if (!DATA.players.length)  DATA.players  = await fetchSheetData(TABS.PLAYERS);
+    if (!DATA.contacts.length) DATA.contacts = await fetchSheetData(TABS.CONTACTS);
+
+    if (!DATA.contacts.length) {
+      showEmpty('contacts-list','📞','No contacts yet','Add contact records to the Contacts tab in your Google Sheet.');
+      return;
+    }
+
+    const playerMap = {};
+    DATA.players.forEach(p => { playerMap[p.PlayerID] = p; });
+
+    const rows = DATA.contacts.map(c => {
+      const player = playerMap[c.PlayerID] || {};
+      const playerName = c.PlayerName || (player.LastName ? `${player.LastName}, ${player.PreferredName || player.FirstName}` : '—');
+      return `
+        <tr>
+          <td>${playerName}</td>
+          <td><span class="badge badge-${player.Team === 'Varsity' ? 'blue' : 'gold'}">${player.Team || '—'}</span></td>
+          <td>${c.ParentName || '—'}</td>
+          <td>${c.Relationship || '—'}</td>
+          <td>${c.PrimaryPhone || '—'}</td>
+          <td>${c.Email || '—'}</td>
+          <td>${c.ParentName2 || '—'}</td>
+          <td>${c.PrimaryPhone2 || '—'}</td>
+          <td>${c.Email2 || '—'}</td>
+        </tr>`;
+    }).join('');
+
+    document.getElementById('contacts-list').innerHTML = `
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Player</th><th>Team</th>
+              <th>Parent/Guardian 1</th><th>Relationship</th><th>Phone 1</th><th>Email 1</th>
+              <th>Parent/Guardian 2</th><th>Phone 2</th><th>Email 2</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }
+
+  async function loadComplianceSection() {
+    if (!DATA.players.length)    DATA.players    = await fetchSheetData(TABS.PLAYERS);
+    if (!DATA.compliance.length) DATA.compliance = await fetchSheetData(TABS.COMPLIANCE);
+    const active = DATA.players.filter(p => p.ActiveStatus === 'Active');
+    const jv     = active.filter(p => p.Team === 'JV Blue' || p.Team === 'JV Gold');
+    renderComplianceTable('compliance-all',    active,                                          DATA.compliance);
+    renderComplianceTable('compliance-varsity',active.filter(p => p.Team === 'Varsity'),        DATA.compliance);
+    renderComplianceTable('compliance-jv',     jv,                                              DATA.compliance);
   }
 
   async function loadScheduleSection() {
-    if (!DATA.schedule.length) DATA.schedule = await fetchSheetData('Schedule');
-    renderSchedule('schedule-upcoming', DATA.schedule, { limit: 20 });
+    if (!DATA.schedule.length) DATA.schedule = await fetchSheetData(TABS.SCHEDULE);
+    renderSchedule('schedule-upcoming', DATA.schedule, { limit: 30 });
     renderSchedule('schedule-all',      DATA.schedule, { showPast: true });
-    // Populate event selector for availability
+    renderSchedule('schedule-games',    DATA.schedule, { showPast: true });
+    // Filter games-only after render
+    const gamesOnly = DATA.schedule.filter(e => e.EventType === 'Game');
+    renderSchedule('schedule-games', gamesOnly, { showPast: true });
     populateEventSelector();
   }
 
   async function loadAvailabilitySection() {
-    if (!DATA.schedule.length)     DATA.schedule     = await fetchSheetData('Schedule');
-    if (!DATA.players.length)      DATA.players      = await fetchSheetData('Players');
-    if (!DATA.availability.length) DATA.availability = await fetchSheetData('Availability');
+    if (!DATA.schedule.length)     DATA.schedule     = await fetchSheetData(TABS.SCHEDULE);
+    if (!DATA.players.length)      DATA.players      = await fetchSheetData(TABS.PLAYERS);
+    if (!DATA.availability.length) DATA.availability = await fetchSheetData(TABS.AVAILABILITY);
     populateEventSelector();
   }
 
@@ -910,8 +814,9 @@
     const sel = document.getElementById('avail-event-pick');
     if (!sel) return;
     sel.innerHTML = '<option value="">— Choose an upcoming event —</option>';
-    const upcoming = DATA.schedule.filter(e => e.Date && e.EventTitle)
-      .sort((a,b) => new Date(a.Date) - new Date(b.Date));
+    const upcoming = DATA.schedule
+      .filter(e => e.Date && e.EventTitle)
+      .sort((a, b) => new Date(a.Date) - new Date(b.Date));
     upcoming.forEach(e => {
       const opt = document.createElement('option');
       opt.value = e.EventID;
@@ -922,31 +827,32 @@
 
   async function loadAvailabilityForEvent(eventId) {
     if (!eventId) return;
-    if (!DATA.players.length)      DATA.players      = await fetchSheetData('Players');
-    if (!DATA.availability.length) DATA.availability = await fetchSheetData('Availability');
+    if (!DATA.players.length)      DATA.players      = await fetchSheetData(TABS.PLAYERS);
+    if (!DATA.availability.length) DATA.availability = await fetchSheetData(TABS.AVAILABILITY);
 
-    const event    = DATA.schedule.find(e => e.EventID === eventId);
-    const responses= DATA.availability.filter(a => a.EventID === eventId);
-    const active   = DATA.players.filter(p => p.ActiveStatus === 'Active' && p.LastName);
+    const responses = DATA.availability.filter(a => a.EventID === eventId);
+    const active    = DATA.players.filter(p => p.ActiveStatus === 'Active' && p.LastName);
+    const responseMap = {};
+    responses.forEach(r => { responseMap[r.PlayerName] = r; });
 
     const summary = document.getElementById('availability-summary');
     if (summary) summary.style.display = 'grid';
 
-    const responseMap = {};
-    responses.forEach(r => { responseMap[r.PlayerName] = r; });
-
-    let yes=0, no=0, pending=0;
+    let yes=0, no=0, pending=0, unsure=0;
     const rows = active.map(p => {
-      const name = `${p.LastName}, ${p.PreferredName || p.FirstName}`;
-      const resp = responseMap[name];
+      const name   = `${p.LastName}, ${p.PreferredName || p.FirstName}`;
+      const resp   = responseMap[name];
       const status = resp ? resp.Response : 'Pending';
       if (status === 'Available')   yes++;
       else if (status === 'Unavailable') no++;
+      else if (status === 'Unsure') unsure++;
       else pending++;
       const cls = status === 'Available' ? 'badge-available' : status === 'Unavailable' ? 'badge-unavailable' : status === 'Unsure' ? 'badge-unsure' : 'badge-pending';
       return `<div class="avail-player-row">
         <div>
-          <div class="avail-player-name">#${p.JerseyNumber||'—'} ${name} <span class="badge badge-${p.Team==='Varsity'?'blue':'gold'}" style="font-size:0.65rem;">${p.Team}</span></div>
+          <div class="avail-player-name">#${p.JerseyNumber||'—'} ${name}
+            <span class="badge badge-${p.Team==='Varsity'?'blue':'gold'}" style="font-size:0.62rem;margin-left:4px;">${p.Team}</span>
+          </div>
           ${resp && resp.Reason ? `<div class="avail-player-reason">${resp.Reason}</div>` : ''}
         </div>
         <span class="badge ${cls}">${status}</span>
@@ -955,226 +861,208 @@
 
     document.getElementById('avail-count-yes').textContent     = yes;
     document.getElementById('avail-count-no').textContent      = no;
-    document.getElementById('avail-count-pending').textContent = pending;
+    document.getElementById('avail-count-pending').textContent = pending + unsure;
     document.getElementById('availability-roster').innerHTML   = rows || '<div class="empty-state"><h3>No players found</h3></div>';
   }
 
   async function loadCommunicationSection() {
-    if (!DATA.announcements.length) DATA.announcements = await fetchSheetData('Announcements');
+    if (!DATA.announcements.length) DATA.announcements = await fetchSheetData(TABS.ANNOUNCEMENTS);
     renderAnnouncements('announcements-list', DATA.announcements);
   }
 
   async function loadEquipmentSection() {
-    if (!DATA.equipment.length) DATA.equipment = await fetchSheetData('Equipment');
-    const kits   = DATA.equipment.filter(e => e.Category === 'Kit'   || e.ItemType === 'Kit');
-    const assets = DATA.equipment.filter(e => e.Category !== 'Kit'   && e.ItemType !== 'Kit');
-    renderEquipmentTable('equipment-kits',   kits,   'Kit');
-    renderEquipmentTable('equipment-assets', assets, 'Asset');
+    if (!DATA.equipment.length) DATA.equipment = await fetchSheetData(TABS.EQUIPMENT);
+    const kits        = DATA.equipment.filter(e => e.Category === 'Kit');
+    const assets      = DATA.equipment.filter(e => e.Category !== 'Kit');
+    const outstanding = DATA.equipment.filter(e => e.ReturnStatus === 'Outstanding');
+    renderEquipmentTable('equipment-kits',        kits,        'kit');
+    renderEquipmentTable('equipment-assets',      assets,      'asset');
+    renderEquipmentTable('equipment-outstanding', outstanding, 'outstanding item');
   }
 
   function renderEquipmentTable(containerId, items, type) {
-    if (!items.length) { showEmpty(containerId, '🎽', `No ${type} items yet`, `Add items to track your ${type.toLowerCase()}s here.`); return; }
+    if (!items.length) { showEmpty(containerId,'🎽',`No ${type}s found`); return; }
     const rows = items.map(i => `<tr>
-      <td>${i.Item || i.ItemName || '—'}</td>
-      <td>${i.Quantity || '—'}</td>
-      <td>${i.Condition || '—'}</td>
-      <td>${i.AssignedTo || '—'}</td>
-      <td><span class="badge ${i.ReturnStatus === 'Returned' ? 'badge-green' : i.ReturnStatus === 'Outstanding' ? 'badge-red' : 'badge-gray'}">${i.ReturnStatus || '—'}</span></td>
-      <td>${i.Notes || ''}</td>
+      <td>${i.Category||'—'}</td>
+      <td>${i.Item||'—'}</td>
+      <td style="text-align:center;">${i.Quantity||'—'}</td>
+      <td><span class="badge badge-${i.Condition==='New'||i.Condition==='Good'?'green':i.Condition==='Fair'?'warning':'red'}">${i.Condition||'—'}</span></td>
+      <td>${i.AssignedTo||'—'}</td>
+      <td>${i.JerseySize||'—'}</td>
+      <td>${i.JerseyNumber||'—'}</td>
+      <td>${i.ShortSize||'—'}</td>
+      <td><span class="badge badge-${i.ReturnStatus==='Returned'?'green':i.ReturnStatus==='Outstanding'?'red':'gray'}">${i.ReturnStatus||'—'}</span></td>
+      <td style="font-size:0.78rem;">${i.Notes||''}</td>
     </tr>`).join('');
     document.getElementById(containerId).innerHTML = `
       <div class="table-wrapper"><table>
-        <thead><tr><th>Item</th><th>Qty</th><th>Condition</th><th>Assigned To</th><th>Return Status</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Category</th><th>Item</th><th style="text-align:center;">Qty</th><th>Condition</th><th>Assigned To</th><th>Jersey Size</th><th>Jersey #</th><th>Short Size</th><th>Return Status</th><th>Notes</th></tr></thead>
         <tbody>${rows}</tbody>
       </table></div>`;
   }
 
   async function loadPerformanceSection() {
     const [matchLogs, playerStats, players] = await Promise.all([
-      DATA.matchLogs.length ? Promise.resolve(DATA.matchLogs) : fetchSheetData('Match_Logs'),
-      DATA.stats.length     ? Promise.resolve(DATA.stats)     : fetchSheetData('Player_Stats'),
-      DATA.players.length   ? Promise.resolve(DATA.players)   : fetchSheetData('Players'),
+      DATA.matchLogs.length  ? Promise.resolve(DATA.matchLogs)  : fetchSheetData(TABS.MATCH_LOGS),
+      DATA.playerStats.length? Promise.resolve(DATA.playerStats): fetchSheetData(TABS.PLAYER_STATS),
+      DATA.players.length    ? Promise.resolve(DATA.players)    : fetchSheetData(TABS.PLAYERS),
     ]);
-    DATA.matchLogs = matchLogs; DATA.stats = playerStats; DATA.players = players;
+    DATA.matchLogs=matchLogs; DATA.playerStats=playerStats; DATA.players=players;
 
-    // Match logs table
-    if (!matchLogs.length) { showEmpty('match-logs-list','⚽','No matches logged yet','Use the Log Match button to record your first match.'); }
-    else {
-      const rows = [...matchLogs].sort((a,b)=>new Date(b.Date)-new Date(a.Date)).map(m=>`<tr>
-        <td>${formatDate(m.Date,'short')}</td>
-        <td>${m.Opponent||'—'}</td>
-        <td><strong>${m.Score||'—'}</strong></td>
-        <td><span class="badge ${m.Result==='W'?'badge-green':m.Result==='L'?'badge-red':'badge-gray'}">${m.Result||'—'}</span></td>
-        <td><span class="badge badge-${m.Team==='Varsity'?'blue':'gold'}">${m.Team||'—'}</span></td>
-        <td>${m.Formation||'—'}</td>
-      </tr>`).join('');
-      document.getElementById('match-logs-list').innerHTML = `
-        <div class="table-wrapper"><table>
-          <thead><tr><th>Date</th><th>Opponent</th><th>Score</th><th>Result</th><th>Team</th><th>Formation</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table></div>`;
-    }
+    renderMatchLogsTable('match-logs-list', matchLogs);
+    renderPlayerStatsTable('player-stats-list', players, playerStats);
 
-    // Player stats — season totals
-    const activePlayers = players.filter(p => p.ActiveStatus === 'Active' && p.LastName);
-    if (!playerStats.length || !activePlayers.length) {
-      showEmpty('player-stats-list','📊','No stats recorded yet','Log a match with player stats to see them here.');
-    } else {
-      const statRows = activePlayers.map(p => {
-        const name   = `${p.LastName}, ${p.PreferredName||p.FirstName}`;
-        const totals = calcPlayerSeasonStats(playerStats, name);
-        return { name, jersey: p.JerseyNumber, team: p.Team, ...totals };
-      }).filter(p => p.gamesPlayed > 0)
-        .sort((a,b) => b.goals - a.goals || b.assists - a.assists);
-
-      if (!statRows.length) { showEmpty('player-stats-list','📊','No stats yet'); return; }
-      const rows = statRows.map(s=>`<tr>
-        <td><strong>#${s.jersey||'—'}</strong></td>
-        <td>${s.name}</td>
-        <td><span class="badge badge-${s.team==='Varsity'?'blue':'gold'}">${s.team}</span></td>
-        <td>${s.gamesPlayed}</td>
-        <td><strong>${s.goals}</strong></td>
-        <td>${s.assists}</td>
-        <td>${s.shots}</td>
-        <td>${s.saves}</td>
-        <td>${s.minutesPlayed}</td>
-        <td>${s.yellowCards > 0 ? `<span class="badge badge-warning">${s.yellowCards}</span>` : '0'}</td>
-        <td>${s.redCards > 0 ? `<span class="badge badge-red">${s.redCards}</span>` : '0'}</td>
-      </tr>`).join('');
-      document.getElementById('player-stats-list').innerHTML = `
-        <div class="table-wrapper"><table>
-          <thead><tr><th>#</th><th>Player</th><th>Team</th><th>GP</th><th>G</th><th>A</th><th>SH</th><th>SV</th><th>MIN</th><th>YC</th><th>RC</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table></div>`;
-    }
+    // Season summary
+    const vRec = calcTeamRecord(matchLogs, 'Varsity');
+    const bRec = calcTeamRecord(matchLogs, 'JV Blue');
+    const gRec = calcTeamRecord(matchLogs, 'JV Gold');
+    document.getElementById('season-summary').innerHTML = `
+      <div class="grid-3" style="margin-bottom:1.5rem;">
+        <div class="stat-card"><div class="stat-label">Varsity</div><div class="stat-value">${formatRecord(vRec)}</div><div class="stat-sub">${vRec.goalsFor} GF · ${vRec.goalsAgainst} GA</div></div>
+        <div class="stat-card gold"><div class="stat-label">JV Blue</div><div class="stat-value gold">${formatRecord(bRec)}</div><div class="stat-sub">${bRec.goalsFor} GF · ${bRec.goalsAgainst} GA</div></div>
+        <div class="stat-card green"><div class="stat-label">JV Gold</div><div class="stat-value green">${formatRecord(gRec)}</div><div class="stat-sub">${gRec.goalsFor} GF · ${gRec.goalsAgainst} GA</div></div>
+      </div>`;
   }
 
-  async function loadComplianceSection() {
-    if (!DATA.players.length)    DATA.players    = await fetchSheetData('Players');
-    if (!DATA.compliance.length) DATA.compliance = await fetchSheetData('Compliance');
-    const active = DATA.players.filter(p => p.ActiveStatus === 'Active' && p.LastName);
-    const compMap = {};
-    DATA.compliance.forEach(c => { compMap[c.PlayerID] = c; });
-    const rows = active.map(p => {
-      const comp   = compMap[p.PlayerID] || {};
-      const status = complianceStatus(comp);
-      return `<tr>
-        <td>${p.LastName}, ${p.PreferredName||p.FirstName}</td>
-        <td><span class="badge badge-${p.Team==='Varsity'?'blue':'gold'}">${p.Team}</span></td>
-        <td>${comp.PhysicalDate ? formatDate(comp.PhysicalDate,'short') : '<span class="badge badge-red">Missing</span>'}</td>
-        <td>${comp.WaiverSigned === 'Yes' ? '<span class="badge badge-green">Signed</span>' : '<span class="badge badge-red">Unsigned</span>'}</td>
-        <td>${comp.ExpirationDate ? formatDate(comp.ExpirationDate,'short') : '—'}</td>
-        <td><span class="badge ${status.cls}">${status.label}</span></td>
-      </tr>`;
-    }).join('');
-    document.getElementById('compliance-list').innerHTML = `
-      <div class="table-wrapper"><table>
-        <thead><tr><th>Player</th><th>Team</th><th>Physical Date</th><th>Waiver</th><th>Expiration</th><th>Status</th></tr></thead>
-        <tbody>${rows || '<tr><td colspan="6" class="table-empty">No players found.</td></tr>'}</tbody>
-      </table></div>`;
+  async function loadTournamentSection() {
+    if (!DATA.tournament.length) DATA.tournament = await fetchSheetData(TABS.TOURNAMENT);
+    const varsityGames = DATA.tournament.filter(g => g.Type === 'Varsity');
+    const jvGames      = DATA.tournament.filter(g => g.Type === 'JV');
+    renderTournamentSchedule('varsity-tourn-schedule',  varsityGames);
+    renderTournamentStandings('varsity-tourn-standings', varsityGames);
+    renderTournamentSchedule('jv-tourn-schedule',       jvGames);
+    renderTournamentStandings('jv-tourn-standings',     jvGames);
+    initTabs('varsity-tourn-tabs');
+    initTabs('jv-tourn-tabs');
   }
 
   async function loadBoosterSection() {
-    const members = await fetchSheetData('Booster_Club');
-    const board   = members.filter(m => m.BoardPosition && m.BoardPosition !== '');
-    const regular = members.filter(m => !m.BoardPosition || m.BoardPosition === '');
-    renderMemberTable('booster-board',   board,   'board member');
-    renderMemberTable('booster-members', regular, 'member');
+    if (!DATA.boosterClub.length) DATA.boosterClub = await fetchSheetData(TABS.BOOSTER_CLUB);
+    const board   = DATA.boosterClub.filter(m => m.BoardPosition && m.BoardPosition.trim() !== '');
+    const members = DATA.boosterClub.filter(m => !m.BoardPosition || m.BoardPosition.trim() === '');
+    renderBoosterTable('booster-board',   board,   'board member');
+    renderBoosterTable('booster-members', members, 'member');
   }
 
-  function renderMemberTable(containerId, members, type) {
-    if (!members.length) { showEmpty(containerId,'⭐',`No ${type}s yet`,`Add ${type}s to the Booster_Club tab in your Google Sheet.`); return; }
+  function renderBoosterTable(containerId, members, type) {
+    if (!members.length) { showEmpty(containerId,'⭐',`No ${type}s yet`); return; }
     const rows = members.map(m=>`<tr>
       <td>${m.MemberName||'—'}</td>
-      <td>${m.BoardPosition||m.Role||'Member'}</td>
+      <td>${m.BoardPosition||'—'}</td>
+      <td>${m.Role||'Member'}</td>
       <td>${m.Email||'—'}</td>
       <td>${m.Phone||'—'}</td>
-      <td><span class="badge ${m.DuesStatus==='Paid'?'badge-green':'badge-red'}">${m.DuesStatus||'—'}</span></td>
+      <td>${m.MembershipYear||'—'}</td>
+      <td><span class="badge badge-${m.DuesStatus==='Paid'?'green':m.DuesStatus==='Unpaid'?'red':'gray'}">${m.DuesStatus||'—'}</span></td>
     </tr>`).join('');
     document.getElementById(containerId).innerHTML = `
       <div class="table-wrapper"><table>
-        <thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Phone</th><th>Dues</th></tr></thead>
+        <thead><tr><th>Name</th><th>Board Position</th><th>Role</th><th>Email</th><th>Phone</th><th>Year</th><th>Dues</th></tr></thead>
         <tbody>${rows}</tbody>
       </table></div>`;
   }
 
   async function loadHistorySection() {
-    const history = await fetchSheetData('Program_History');
-    if (!history.length) {
-      ['history-records','history-honors','history-players'].forEach(id =>
-        showEmpty(id,'🏅','No history data yet','Add season records to the Program_History tab in your Google Sheet.'));
-      return;
-    }
-    const records = history.filter(h => h.Season);
-    const rows = records.sort((a,b)=>b.Season-a.Season).map(h=>`<tr>
-      <td>${h.Season||'—'}</td>
-      <td>${h.VarsityRecord||'—'}</td>
-      <td>${h.DistrictRecord||'—'}</td>
-      <td>${h.Accomplishments||'—'}</td>
-      <td>${h.HeadCoach||'—'}</td>
-    </tr>`).join('');
-    document.getElementById('history-records').innerHTML = `
-      <div class="table-wrapper"><table>
-        <thead><tr><th>Season</th><th>Overall</th><th>District</th><th>Accomplishments</th><th>Head Coach</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table></div>`;
-    showEmpty('history-honors','🏅','Honors coming soon','Add individual honors data to Program_History tab.');
-    showEmpty('history-players','👤','Past players coming soon','Past player data will display here.');
+    const [seasons, allGames, coaches, awards] = await Promise.all([
+      fetchSheetData(TABS.HISTORY_SEASONS),
+      fetchSheetData(TABS.HISTORY_ALL_GAMES),
+      fetchSheetData(TABS.HISTORY_COACHES),
+      fetchSheetData(TABS.HISTORY_AWARDS),
+    ]);
+    renderSeasonHistory('history-seasons',     seasons);
+    renderAllGamesHistory('history-all-games', allGames);
+    renderCoachHistory('history-coaches',      coaches);
+    renderAwardsHistory('history-awards',      awards);
   }
 
-  // ---- Save Functions (write to Sheets) ----
+  // ---- Save Functions ----
   async function saveAnnouncement() {
-    const title    = document.getElementById('ann-title').value.trim();
-    const date     = document.getElementById('ann-date').value;
-    const priority = document.getElementById('ann-priority').value;
-    const type     = document.getElementById('ann-type').value;
-    const message  = document.getElementById('ann-message').value.trim();
-    const audience = document.getElementById('ann-audience').value;
-    if (!title || !date || !message) { showToast('Please fill in all required fields.', 'danger'); return; }
-    await writeSheetData('Announcements', { Title: title, Date: date, Priority: priority, AlertType: type, Message: message, Audience: audience, PostedBy: 'Coach Guillot' });
+    const title   = document.getElementById('ann-title').value.trim();
+    const date    = document.getElementById('ann-date').value;
+    const message = document.getElementById('ann-message').value.trim();
+    if (!title || !date || !message) { showToast('Please fill in all required fields.','danger'); return; }
+    await writeSheetData(TABS.ANNOUNCEMENTS, {
+      Date: date, Title: title, Message: message,
+      Priority: document.getElementById('ann-priority').value,
+      AlertType: document.getElementById('ann-type').value,
+      Audience: document.getElementById('ann-audience').value,
+      PostedBy: 'Coach Guillot',
+    });
     closeModal('add-announcement-modal');
-    showToast('Announcement posted!', 'success');
+    showToast('Announcement posted!','success');
     DATA.announcements = [];
   }
 
   async function saveEvent() {
-    const title    = document.getElementById('evt-title').value.trim();
-    const date     = document.getElementById('evt-date').value;
-    const time     = document.getElementById('evt-time').value;
-    const type     = document.getElementById('evt-type').value;
-    const team     = document.getElementById('evt-team').value;
-    const location = document.getElementById('evt-location').value.trim();
-    const opponent = document.getElementById('evt-opponent').value.trim();
-    const status   = document.getElementById('evt-status').value;
-    const note     = document.getElementById('evt-change-note').value.trim();
-    if (!title || !date) { showToast('Title and date are required.', 'danger'); return; }
-    const eventId = 'E' + Date.now();
-    await writeSheetData('Schedule', { EventID: eventId, EventTitle: title, Date: date, Time: time, EventType: type, Team: team, Location: location, Opponent: opponent, Status: status, ChangeNote: note });
+    const title = document.getElementById('evt-title').value.trim();
+    const date  = document.getElementById('evt-date').value;
+    if (!title || !date) { showToast('Title and date are required.','danger'); return; }
+    await writeSheetData(TABS.SCHEDULE, {
+      EventID:    'E' + Date.now(),
+      EventTitle: title,
+      Date:       date,
+      Time:       document.getElementById('evt-time').value,
+      EventType:  document.getElementById('evt-type').value,
+      Team:       document.getElementById('evt-team').value,
+      Location:   document.getElementById('evt-location').value.trim(),
+      Opponent:   document.getElementById('evt-opponent').value.trim(),
+      Status:     document.getElementById('evt-status').value,
+      ChangeNote: document.getElementById('evt-change-note').value.trim(),
+    });
     closeModal('add-event-modal');
-    showToast('Event saved!', 'success');
+    showToast('Event saved!','success');
     DATA.schedule = [];
   }
 
   async function savePlayer() {
-    const last      = document.getElementById('pl-last').value.trim();
-    const first     = document.getElementById('pl-first').value.trim();
-    const preferred = document.getElementById('pl-preferred').value.trim();
-    const jersey    = document.getElementById('pl-jersey').value;
-    const position  = document.getElementById('pl-position').value;
-    const team      = document.getElementById('pl-team').value;
-    const grade     = document.getElementById('pl-grade').value;
-    const dob       = document.getElementById('pl-dob').value;
-    const notes     = document.getElementById('pl-notes').value.trim();
-    if (!last || !first) { showToast('First and last name are required.', 'danger'); return; }
-    await writeSheetData('Players', { LastName: last, FirstName: first, PreferredName: preferred, JerseyNumber: jersey, PrimaryPosition: position, Team: team, GradeLevel: grade, DateOfBirth: dob, ActiveStatus: 'Active', AcademicYear: CONFIG.SEASON, Notes: notes });
+    const last  = document.getElementById('pl-last').value.trim();
+    const first = document.getElementById('pl-first').value.trim();
+    if (!last || !first) { showToast('First and last name are required.','danger'); return; }
+    await writeSheetData(TABS.PLAYERS, {
+      LastName:          last,
+      FirstName:         first,
+      PreferredName:     document.getElementById('pl-preferred').value.trim(),
+      DateOfBirth:       document.getElementById('pl-dob').value,
+      GradeLevel:        document.getElementById('pl-grade').value,
+      JerseyNumber:      document.getElementById('pl-jersey').value,
+      PrimaryPosition:   document.getElementById('pl-position').value,
+      SecondaryPosition: document.getElementById('pl-position2').value,
+      Team:              document.getElementById('pl-team').value,
+      ActiveStatus:      'Active',
+      AcademicYear:      CONFIG.SEASON,
+      Notes:             document.getElementById('pl-notes').value.trim(),
+    });
     closeModal('add-player-modal');
-    showToast(`${first} ${last} added to roster!`, 'success');
+    showToast(`${first} ${last} added to roster!`,'success');
     DATA.players = [];
+  }
+
+  async function saveMatch() {
+    const date     = document.getElementById('match-date').value;
+    const opponent = document.getElementById('match-opponent').value.trim();
+    if (!date || !opponent) { showToast('Date and opponent are required.','danger'); return; }
+    await writeSheetData(TABS.MATCH_LOGS, {
+      MatchID:       'M' + Date.now(),
+      Team:          document.getElementById('match-team').value,
+      Opponent:      opponent,
+      Date:          date,
+      Location:      document.getElementById('match-location').value.trim(),
+      OpponentScore: document.getElementById('match-opp-score').value,
+      CHSScore:      document.getElementById('match-chs-score').value,
+      Result:        document.getElementById('match-result').value,
+      Notes:         document.getElementById('match-notes').value.trim(),
+    });
+    closeModal('add-match-modal');
+    showToast('Match logged!','success');
+    DATA.matchLogs = [];
+  }
+
+  function viewPlayerProfile(playerID) {
+    showToast(`Player profile detail view coming in next build session.`,'');
   }
 
   // ---- Initialize ----
   loadDashboard();
 </script>
-
 </body>
 </html>
