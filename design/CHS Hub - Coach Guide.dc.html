@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0}
+a{color:#0A3868}
+a:hover{color:#A1825D}
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+
+<doc-page margin="0.7in">
+  <div slot="footer" style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid #D9C9A8;padding-top:6px;font:400 10pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;">
+    <span>CHS Boys Soccer Program Hub — Coach Guide</span>
+    <span>Covington High School</span>
+  </div>
+
+  <div style="border-bottom:3px solid #0A3868;padding-bottom:14px;margin-bottom:26px;">
+    <div style="font:700 10.5pt/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:#A1825D;margin-bottom:10px;">Covington High School Boys Soccer</div>
+    <h1 style="font:400 30pt/1.15 Georgia,serif;color:#0A3868;margin:0 0 8px;">Coach Guide to the Program Hub</h1>
+    <p style="font:400 13pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;margin:0;max-width:34em;">How to run the season in the hub: the schedule, results, roster, announcements and everything the hub works out for you.</p>
+  </div>
+
+  <h2 style="font:400 19pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 8px;break-after:avoid;">Signing in</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">Open the hub and choose <strong>Coach/Player Access</strong> in the left menu, then type your four-digit PIN. Your PIN is on your card under Manage → Staff; if you do not have one, ask the head coach. Sign out from the bottom of the menu when you are done on a shared computer.</p>
+  <img src="assets/rb/signin.png" alt="The PIN sign-in screen" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 22px;">Players use the same screen with their own PIN and get a read-only view of their team.</p>
+
+  <div style="background:#FBF9F5;border:1px solid #D9C9A8;border-left:5px solid #A1825D;border-radius:8px;padding:18px 20px;margin:0 0 26px;break-inside:avoid;">
+    <div style="font:700 11pt/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:#A1825D;margin-bottom:9px;">The one idea behind the whole hub</div>
+    <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 10px;">You type a fact in exactly one place. The <strong>schedule</strong> says a game exists. The <strong>game report</strong> says what happened in it. Everything else — scores, player stats, team stats, power ratings, goal progress, program history — is worked out from those two.</p>
+    <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0;">So there is never a score to type twice, and if a number looks wrong the fix is always in the game report, never on the page showing it.</p>
+  </div>
+
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">The <strong>season picker</strong> at the top of every page drives the whole hub at once. Leave it on the current season for day-to-day work; change it to look back at a past year.</p>
+  <img src="assets/rb/overview.png" alt="The overview page with the season picker at the top" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 30px;">The overview: your next event, a snapshot row per team, recent announcements, and a comparison against last season.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-before:page;break-after:avoid;">1. Adding the season and the schedule</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">The schedule is the backbone. Every game that can be reported on, every practice players can RSVP to, and every fixture that appears in results and stats starts here.</p>
+
+  <h3 style="font:700 12pt/1.3 'Helvetica Neue',Arial,sans-serif;color:#A1825D;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;break-after:avoid;">Starting a new season</h3>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 18px;">You do not create a season by hand. Closing the old one creates the new one and offers to copy last year's fixtures across (see section 8). If the hub is brand new, the current season is already there — check its label under History → Seasons.</p>
+
+  <h3 style="font:700 12pt/1.3 'Helvetica Neue',Arial,sans-serif;color:#A1825D;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;break-after:avoid;">Adding an event</h3>
+  <img src="assets/rb/schedule.png" alt="The schedule page" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">This Season → Schedule. Filter by team or event type; <strong>+ Add Event</strong> is on the right.</p>
+  <ol style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 16px;padding-left:22px;">
+    <li style="margin-bottom:7px;">Click <strong>+ Add Event</strong>.</li>
+    <li style="margin-bottom:7px;">Pick the <strong>type</strong>: practice, game, scrimmage, classroom session or other.</li>
+    <li style="margin-bottom:7px;">Pick the <strong>team</strong>, or All if it applies to the whole program.</li>
+    <li style="margin-bottom:7px;">For a game or scrimmage, fill in the <strong>opponent</strong>, the <strong>game number</strong> and whether you are home or away. Start typing an opponent's name and the hub offers the ones you have played before — pick from the list so the spelling stays consistent.</li>
+    <li style="margin-bottom:7px;">Tick <strong>district game</strong> if it counts toward district standing. Tick <strong>playoff game</strong> for postseason fixtures and choose the round.</li>
+    <li style="margin-bottom:7px;">Set the date, start and end time, and location.</li>
+    <li>Click <strong>Add</strong>. The event's title is written for you.</li>
+  </ol>
+  <img src="assets/rb/add-event.png" alt="The add schedule event form" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">Choosing Game or Scrimmage adds the opponent, game number, home/away and district fields.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">Plans change: use <strong>Edit</strong> to move a game, and <strong>Cancel</strong> to call one off. Cancelling keeps the event on the schedule with a cancelled marker rather than deleting it, so nobody wonders where it went.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-before:page;break-after:avoid;">2. Entering a game result</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">This is the one job that feeds everything else, and the one worth doing carefully. It is a desktop task — the player stats grid is wide.</p>
+  <img src="assets/rb/results.png" alt="The results page, one table per team" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">This Season → Results, one table per team. The scores here are counted, not typed — you cannot edit them on this page.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">Find the game and click <strong>Update Result</strong>. The report has four sections.</p>
+
+  <img src="assets/rb/update-result.png" alt="The update result game report" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 18px;">The scoring summary. The line above it shows the score the rest of the hub will use.</p>
+
+  <div style="display:flex;flex-direction:column;gap:12px;margin:0 0 18px;">
+    <div style="border:1px solid #D9C9A8;border-radius:8px;padding:14px 16px;background:#FBF9F5;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#0A3868;margin-bottom:4px;">Scoring summary — this is the score</div>
+      <div style="font:400 11.5pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">One line per goal: which team scored, the shirt number, the minute, and the assist if there was one. Own goals get their own tick box, which credits the goal to the other team while keeping it off the scorer's tally. Add every goal in the game, both teams. The result on every other page is counted from these lines.</div>
+    </div>
+    <div style="border:1px solid #D9C9A8;border-radius:8px;padding:14px 16px;background:#FBF9F5;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#0A3868;margin-bottom:4px;">A goalless game needs the tick box</div>
+      <div style="font:400 11.5pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">If the game genuinely finished 0–0, tick <strong>this game finished 0–0</strong>. An empty summary on its own means "not reported yet", not nil-nil, and the game will not count anywhere until you say so.</div>
+    </div>
+    <div style="border:1px solid #D9C9A8;border-radius:8px;padding:14px 16px;background:#FBF9F5;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#0A3868;margin-bottom:4px;">Discipline</div>
+      <div style="font:400 11.5pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Yellow and red cards, by team and shirt number. These appear in the players' card totals.</div>
+    </div>
+    <div style="border:1px solid #D9C9A8;border-radius:8px;padding:14px 16px;background:#FBF9F5;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#0A3868;margin-bottom:4px;">Team stats and player stats</div>
+      <div style="font:400 11.5pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Corners, fouls, possession and the rest for the team; then a row per player for halves played, shots, passes, tackles and saves. Goals, assists, clean sheets and cards are filled in for you from the sections above — the shaded columns are not typed. <strong>Player stats are Varsity only</strong>; other teams record the scoring summary and discipline and nothing more.</div>
+    </div>
+  </div>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">You do not have to fill everything in at once, and nothing is lost if you only get to the score. Come back and add player stats later; the hub keeps the counts separate and says on each stats card how many games fed each average.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-before:page;break-after:avoid;">3. Managing the roster</h2>
+  <img src="assets/rb/roster.png" alt="The roster page" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">This Season → Roster. Filter by team along the top; each card shows the player's PIN.</p>
+  <ol style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 16px;padding-left:22px;">
+    <li style="margin-bottom:7px;">Click <strong>+ Add Player</strong>.</li>
+    <li style="margin-bottom:7px;">Name, team, jersey number, positions, grade and graduation year.</li>
+    <li style="margin-bottom:7px;">Give them a <strong>four-digit PIN</strong>. This is what they sign in with, so write it down before you save.</li>
+    <li style="margin-bottom:7px;">Tick <strong>team captain this season</strong> for captains. More than one per team is fine.</li>
+    <li>Click <strong>Add</strong>.</li>
+  </ol>
+  <img src="assets/rb/add-player.png" alt="The add player form" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">Jersey number matters: game reports are entered by shirt number.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">Use <strong>Edit</strong> for a change of number or a move between squads. Only <strong>Delete</strong> a player added by mistake — a player who leaves mid-season is better left in place so the games they played still add up. At the end of the year the close-season steps carry the roster forward and drop the seniors for you.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-after:avoid;">4. Posting an announcement</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">Announcements are the fastest way to reach everyone: they show on the public home page and inside the hub. Schedule changes post themselves; anything else is yours to write.</p>
+  <img src="assets/rb/announcements.png" alt="The announcements page" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">Manage → Announcements. The pin marks a post held at the top.</p>
+  <ol style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 16px;padding-left:22px;">
+    <li style="margin-bottom:7px;">Click <strong>+ Post Announcement</strong>.</li>
+    <li style="margin-bottom:7px;">Write a title and the message.</li>
+    <li style="margin-bottom:7px;">Choose the team it is for, or All.</li>
+    <li>Tick <strong>pin this announcement</strong> for something that must stay visible, then click <strong>Add</strong>.</li>
+  </ol>
+  <img src="assets/rb/add-announcement.png" alt="The add announcement form" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">This works on a phone, so you can post from the sideline.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">Unpin or delete a post once it is stale — the home page is the first thing families see.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-before:page;break-after:avoid;">5. Adding teams and opponents</h2>
+  <img src="assets/rb/teams.png" alt="The teams page" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">Manage → Teams. Teams above, opponents below.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">Type the name and click <strong>+ Add Team</strong>. That squad then appears in every filter, table and dropdown in the hub. Varsity cannot be removed; anything else can, though removing a team does not clear the players and games already tagged with it, so rename rather than remove when a squad is just being called something new.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">The <strong>opponents</strong> list underneath is what makes all-time head-to-head records work. One entry per school, spelled the same way every year. An opponent that already appears on a schedule cannot be removed — rename it instead, and every past game follows.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-after:avoid;">6. Adding staff and PINs</h2>
+  <img src="assets/rb/staff.png" alt="The staff page" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">Manage → Staff. Each card carries the person's roles and their sign-in PIN.</p>
+  <ol style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 16px;padding-left:22px;">
+    <li style="margin-bottom:7px;">Click <strong>+ Add Staff</strong> and enter their name, and email if you have it.</li>
+    <li style="margin-bottom:7px;">Click <strong>Add Role</strong>. A role is either a team plus a position — say JV Blue, assistant coach — or a school role such as principal or athletic director.</li>
+    <li style="margin-bottom:7px;">Add as many roles as the person holds. Someone can be Varsity assistant and JV Gold head coach at once.</li>
+    <li>Click <strong>Add</strong>. The hub picks the next free four-digit PIN and shows it on their card.</li>
+  </ol>
+  <img src="assets/rb/add-staff.png" alt="The add staff member form" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">You do not choose the PIN — the hub assigns it, so no two people can collide.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">Adding your principal and athletic director here means their names print on the game day roster sheet automatically. Anyone with a staff card can sign in as a coach and edit, so delete people who leave the program.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-before:page;break-after:avoid;">7. Setting team goals</h2>
+  <img src="assets/rb/goals.png" alt="The team goals page" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">This Season → Team Goals. Varsity only, and tied to the season showing in the picker.</p>
+  <ol style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 16px;padding-left:22px;">
+    <li style="margin-bottom:7px;">Click <strong>+ Add Goal</strong>.</li>
+    <li style="margin-bottom:7px;">Write the goal in your own words — "finish the season with 10 or more wins".</li>
+    <li style="margin-bottom:7px;">Choose the <strong>metric</strong> the hub should measure: wins, losses, goals for, shutouts, district record, power rating and so on.</li>
+    <li>Type the <strong>target</strong>. For district record, type it whole, as 5-1-0.</li>
+  </ol>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">The <strong>actual</strong> column fills itself in from the season's Varsity games, and <strong>status</strong> tells you whether you are there yet. The hub knows which direction counts as good: more wins is better, fewer goals conceded is better, and a power <em>ranking</em> of 1st is better than 20th even though the number is smaller. A target for number of ties shows no verdict, because neither more nor fewer is honestly the goal.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">Goals stay with the season that set them. Closing the season does not wipe them, so next year you can look back at what you aimed for and whether you got there.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-after:avoid;">8. Closing a season</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">Once a year, when the last game is played and every result is in. Closing locks the record into program history and starts the next season.</p>
+  <img src="assets/rb/seasons.png" alt="The seasons page" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">History → Seasons, then <strong>Close Season</strong>. Check every game has a result first.</p>
+  <img src="assets/rb/close-season.png" alt="Step one of the close season walkthrough" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">Four steps, and it names any game still missing a result before you go on.</p>
+  <ol style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;padding-left:22px;">
+    <li style="margin-bottom:8px;"><strong>Check the record.</strong> The figures shown are what gets locked in. Any game without a result is listed — go back and report it if it matters.</li>
+    <li style="margin-bottom:8px;"><strong>District standing.</strong> Defaults to <em>not recorded</em>, deliberately. Set 1st only if you actually won the district; that is what puts the champions badge on program history.</li>
+    <li style="margin-bottom:8px;"><strong>The new season.</strong> Confirm its label and choose what to copy over: district fixtures, the whole schedule, or nothing. Copied games arrive with no date and home/away flipped, ready for you to set.</li>
+    <li><strong>The roster.</strong> Seniors are already unticked. Untick anyone else who is not coming back. Current captains are recorded as an honor for the season being closed.</li>
+  </ol>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">Afterwards the closed season's record is fixed: editing an old game will not quietly move a past year's record. Staff, teams and opponents carry over untouched.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-before:page;break-after:avoid;">9. Checking RSVPs</h2>
+  <img src="assets/rb/availability.png" alt="The availability tracker" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">This Season → Availability. Players down the side, upcoming events across the top.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">Players answer yes, no or maybe from their own sign-in, usually on a phone. The tracker shows where everyone stands; filter by team along the top. A dash means the event does not apply to that player's squad.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">Only <strong>upcoming</strong> events appear. An answer locks at kickoff, so nobody can change their mind after the fact and the attendance report cannot shift.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">For a summary of who has been answering, go to Manage → Reports, attendance tab. It covers events that have already happened and gives a yes percentage per event and per player. Someone who never answered is counted in its own column and is not marked against them.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 4px;break-after:avoid;">10. Reading the stats and power ratings</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">Nothing on either page is typed. Both are worked out from the game reports, so the way to change a number is to correct the report behind it.</p>
+  <img src="assets/rb/stats.png" alt="The stats page leaderboard" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">This Season → Stats, one table per team, with a leaderboard tab and a team stats tab.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">Varsity tables carry the full set — appearances, goals, assists, shooting, passing, tackles, saves, clean sheets and goals against. Other teams show goals, assists, cards and clean sheets, because those games record only the scoring summary and discipline.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 16px;">Each team stats card says how many games fed it, and it may be three different counts: goals per game over the games with a score, shots per game over the games where player stats were entered, corners and fouls over the games where team stats were filled in. <strong>N/A means that section has not been logged</strong>, not that the number is zero.</p>
+  <img src="assets/rb/power-rankings.png" alt="The power rankings page" style="width:100%;display:block;border:1px solid #D9C9A8;border-radius:6px;break-inside:avoid;">
+  <p style="font:400 10.5pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:7px 0 16px;">This Season → Power Rankings, Varsity only.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">One row per regular-season game. The hub knows your result; the one thing you type is <strong>each opponent's win/loss/tie record</strong>, and the rating updates as you keep those current. Playoff games are left out on purpose — the rating is what decides seeding, so playoff results must not feed back into it.</p>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">Underneath, <strong>Update PR Tracker</strong> records where the state has you on a given date, against the team sitting in the last playoff position, so you can watch the gap through the season.</p>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 12px;break-before:page;break-after:avoid;">What not to do</h2>
+  <div style="display:flex;flex-direction:column;gap:10px;margin:0 0 30px;">
+    <div style="border:1px solid #D9C9A8;border-left:5px solid #B23B3B;border-radius:8px;padding:13px 16px;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Do not clear the browser's history or site data on the record computer.</div>
+      <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">The hub keeps the season in that browser. Clearing it erases the season.</div>
+    </div>
+    <div style="border:1px solid #D9C9A8;border-left:5px solid #B23B3B;border-radius:8px;padding:13px 16px;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Do not enter results on a different computer.</div>
+      <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">Each machine keeps its own copy and they never merge. All data entry happens on the one agreed computer.</div>
+    </div>
+    <div style="border:1px solid #D9C9A8;border-left:5px solid #B23B3B;border-radius:8px;padding:13px 16px;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Do not delete a player or an opponent to tidy up.</div>
+      <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">Their games and history are attached to that name. Rename, or leave them alone.</div>
+    </div>
+    <div style="border:1px solid #D9C9A8;border-left:5px solid #B23B3B;border-radius:8px;padding:13px 16px;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Do not close a season until every result is in.</div>
+      <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">The record is locked at that moment. Games reported afterwards will not change it.</div>
+    </div>
+    <div style="border:1px solid #D9C9A8;border-left:5px solid #B23B3B;border-radius:8px;padding:13px 16px;break-inside:avoid;">
+      <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Do not share PINs.</div>
+      <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">A coach PIN can edit everything, including past seasons.</div>
+    </div>
+  </div>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 12px;break-after:avoid;">If something looks wrong</h2>
+  <div style="border:1px solid #D9C9A8;border-radius:8px;overflow:hidden;margin:0 0 30px;">
+    <div style="background:#0A3868;color:#FFFFFF;display:grid;grid-template-columns:1fr 1.35fr;gap:0;font:700 10.5pt/1.3 'Helvetica Neue',Arial,sans-serif;letter-spacing:0.06em;text-transform:uppercase;">
+      <div style="padding:10px 14px;">What you are seeing</div>
+      <div style="padding:10px 14px;">Where to look</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1.35fr;font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">A game is missing from results</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">It is not on the schedule, or it is on a different team. Check This Season → Schedule.</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">A played game shows no score</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">Its report has no goals in it. Open Update Result and add them — or tick the 0–0 box if that is the score.</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">The score is wrong</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">A goal is missing, doubled, or credited to the wrong team in the scoring summary. Fix it there; every page follows.</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">A player's stats are empty</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">Their half-played boxes were never ticked in that game's report, or the game was not Varsity.</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">A number reads N/A</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">That section has not been logged in any game yet. It is not a zero.</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">The district record looks short</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">A fixture is missing its district tick. Edit the event on the schedule.</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">The power rating has not moved</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">The opponent's record has not been typed for that game, or the game was a playoff, which is excluded on purpose.</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">The page looks like last year</div>
+      <div style="padding:12px 14px;border-bottom:1px solid #E8DFCC;">The season picker at the top is on a past season. Set it back to current.</div>
+      <div style="padding:12px 14px;">Everything is empty on this computer</div>
+      <div style="padding:12px 14px;">You are not on the record computer, or its site data was cleared. Nothing is recoverable from here.</div>
+    </div>
+  </div>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 12px;break-before:page;break-after:avoid;">Season start — one page</h2>
+  <div style="border:1px solid #D9C9A8;border-radius:8px;padding:8px 20px 16px;margin:0 0 26px;background:#FBF9F5;">
+    <ul style="font:400 12pt/1.9 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:8px 0 0;padding-left:20px;">
+      <li>Confirm the season label and that it is the current one — History → Seasons</li>
+      <li>Check the team list is right for this year — Manage → Teams</li>
+      <li>Add and remove staff, note their PINs — Manage → Staff</li>
+      <li>Finish the roster: numbers, grades, PINs, captains — This Season → Roster</li>
+      <li>Add every opponent you will face this year — Manage → Teams</li>
+      <li>Enter the full schedule, ticking district games — This Season → Schedule</li>
+      <li>Set this year's Varsity goals — This Season → Team Goals</li>
+      <li>Hand out player PINs with the hub's address</li>
+      <li>Post a welcome announcement</li>
+    </ul>
+  </div>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 12px;break-after:avoid;">Season end — one page</h2>
+  <div style="border:1px solid #D9C9A8;border-radius:8px;padding:8px 20px 16px;margin:0 0 30px;background:#FBF9F5;">
+    <ul style="font:400 12pt/1.9 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:8px 0 0;padding-left:20px;">
+      <li>Report every remaining game, including any 0–0</li>
+      <li>Finish the player stats on any Varsity game still part-filled</li>
+      <li>Bring every opponent's record up to date — This Season → Power Rankings</li>
+      <li>Record individual honors for the year — History → Seasons</li>
+      <li>Check the captain ticks on the roster are correct</li>
+      <li>Export the attendance and season stats reports and save them somewhere safe</li>
+      <li>Run Close Season: check the record, set the district standing, name the new season, choose what to copy, carry the roster forward</li>
+      <li>Confirm program history shows the year correctly</li>
+    </ul>
+  </div>
+
+  <h2 style="font:400 22pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 12px;break-after:avoid;">Words used in the hub</h2>
+  <div style="display:grid;grid-template-columns:auto 1fr;gap:11px 20px;font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">
+    <div style="font-weight:700;">Game report</div><div>Everything recorded about one game — goals, cards, team stats, player stats. Opened with Update Result.</div>
+    <div style="font-weight:700;">Reported</div><div>A game the hub counts as played: it has at least one goal in its summary, or a ticked 0–0, or a final score typed in from a past year.</div>
+    <div style="font-weight:700;">Derived</div><div>Worked out by the hub rather than typed. Scores, stats, ratings and history are all derived.</div>
+    <div style="font-weight:700;">Appearance</div><div>A half played. Two per game, ticked in the player stats section.</div>
+    <div style="font-weight:700;">Clean sheet</div><div>A game the opponent did not score in, credited to the players who appeared.</div>
+    <div style="font-weight:700;">GAA</div><div>Goals against average — goals conceded in the games a keeper played, divided by those games.</div>
+    <div style="font-weight:700;">GF / GA / GD</div><div>Goals for, goals against, and the difference between them.</div>
+    <div style="font-weight:700;">Win %</div><div>Wins plus half the ties, divided by games played.</div>
+    <div style="font-weight:700;">Power rating</div><div>A per-game score built from your result and the strength of the opponent. Higher is better.</div>
+    <div style="font-weight:700;">Power ranking</div><div>Your position in the state list. Lower is better — 1st is the top.</div>
+    <div style="font-weight:700;">Snapshot</div><div>The record locked onto a season when it is closed. It cannot drift afterwards.</div>
+    <div style="font-weight:700;">RSVP</div><div>A player saying yes, no or maybe to an event. Locks at kickoff.</div>
+    <div style="font-weight:700;">Own goal</div><div>A goal credited to the other team. Recorded with a tick box so it counts in the score but not on the scorer's record.</div>
+  </div>
+</doc-page>
+</x-dc>
+</body>
+</html>

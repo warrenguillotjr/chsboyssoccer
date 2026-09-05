@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0}
+a{color:#0A3868}
+a:hover{color:#A1825D}
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+
+<doc-page margin="0.7in">
+  <div slot="footer" style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid #D9C9A8;padding-top:6px;font:400 10pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;">
+    <span>CHS Boys Soccer Program Hub — Setup &amp; Go-Live</span>
+    <span>Covington High School</span>
+  </div>
+
+  <div style="border-bottom:3px solid #0A3868;padding-bottom:14px;margin-bottom:26px;">
+    <div style="font:700 10.5pt/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:#A1825D;margin-bottom:10px;">Covington High School Boys Soccer</div>
+    <h1 style="font:400 30pt/1.15 Georgia,serif;color:#0A3868;margin:0 0 8px;">Setting up the Program Hub</h1>
+    <p style="font:400 13pt/1.5 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;margin:0;max-width:34em;">Everything that has to happen once, before the first coach signs in. Work through it in order; nothing here needs to be done twice.</p>
+  </div>
+
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 14px;">The hub arrives loaded with practice content — players called "Player 1", opponents called "Opponent 3", a made-up schedule. That content is there so every page has something to show. Setup is the job of clearing it out and putting the real program in its place.</p>
+
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 24px;">Two kinds of work are involved. Most of it you do by clicking around inside the hub, and it is covered step by step below. A short list of jobs can only be done by editing the hub file itself; those are gathered in Part 3 so you can hand them over in one go.</p>
+
+  <div style="background:#FBF9F5;border:1px solid #D9C9A8;border-left:5px solid #A1825D;border-radius:8px;padding:18px 20px;margin:0 0 30px;break-inside:avoid;">
+    <div style="font:700 11pt/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:#A1825D;margin-bottom:9px;">Read this first</div>
+    <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 10px;"><strong>The hub saves its information in the web browser on the computer where it is used.</strong> There is no shared server behind it. A record typed on the coaching office computer does not appear on a laptop at home, and clearing that browser's history or site data erases everything the hub has stored.</p>
+    <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0;">Pick <strong>one computer and one browser</strong> as the program's record — the machine where schedules, results and rosters get typed. Everyone else can open the hub to look at their own copy, but that one machine holds the season.</p>
+  </div>
+
+  <h2 style="font:400 19pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 6px;break-after:avoid;">Part 1 — Clear the practice data</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">Do this before anything else, on the computer you chose above. Everything the hub has remembered — the sample schedule, roster, results and announcements — is wiped and the hub starts from a clean slate.</p>
+  <ol style="font:400 12pt/1.7 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;padding-left:22px;">
+    <li>Open the hub in the browser you have chosen.</li>
+    <li>Open the browser's settings and find the option to clear browsing data or site data.</li>
+    <li>Clear <em>cookies and site data</em> for the hub's address only, not your whole history.</li>
+    <li>Reload the hub. It comes back with the sample content again — that is expected, because the samples are built into the file. Part 3 covers removing them for good.</li>
+  </ol>
+  <p style="font:400 11.5pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:0 0 30px;">If you would rather not touch browser settings, skip this step and hand it over with the Part 3 list instead.</p>
+
+  <h2 style="font:400 19pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 6px;break-after:avoid;">Part 2 — Build the program, in this order</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 16px;">Order matters. Teams have to exist before you can put a player on one, and staff have to exist before anyone can sign in as a coach. Every one of these steps is done inside the hub, and the coach guide has the click-by-click detail for each.</p>
+
+  <ol style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 26px;padding-left:22px;">
+    <li style="margin-bottom:12px;break-inside:avoid;"><strong>Teams.</strong> Manage → Teams. Varsity is permanent. Add each other squad exactly as you want it named everywhere — every table, filter and dropdown in the hub is built from this list.</li>
+    <li style="margin-bottom:12px;break-inside:avoid;"><strong>Opponents.</strong> Same page, lower down. Add every school you expect to play, spelled consistently. All-time head-to-head records are matched on these names, so "St. Paul's" and "St Pauls" become two different opponents forever.</li>
+    <li style="margin-bottom:12px;break-inside:avoid;"><strong>Staff.</strong> Manage → Staff. Add every coach, plus the principal and athletic director if you want them printed on the game day roster sheet. The hub assigns each person a four-digit PIN automatically and shows it on their card.</li>
+    <li style="margin-bottom:12px;break-inside:avoid;"><strong>Season.</strong> History → Seasons. Confirm the label for the season you are about to play, and that it is the only one marked current.</li>
+    <li style="margin-bottom:12px;break-inside:avoid;"><strong>Roster.</strong> This Season → Roster. Add every player with jersey number, team, grade and a four-digit PIN of your choosing. Tick the captain box for captains — the hub records them as an honor when the season closes.</li>
+    <li style="margin-bottom:12px;break-inside:avoid;"><strong>Schedule.</strong> This Season → Schedule. Enter every practice, game and scrimmage you know about. Tick <em>district game</em> on the district fixtures as you go; it is easy to forget and it drives the district record.</li>
+    <li style="break-inside:avoid;"><strong>Team goals</strong> (optional). This Season → Team Goals. Varsity targets for the year. The hub fills in the actual figures as the season runs.</li>
+  </ol>
+
+  <h2 style="font:400 19pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 6px;break-after:avoid;">Part 3 — Jobs that need the file edited</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 16px;">These cannot be done by clicking. Hand this list, as it stands, to whoever maintains the hub file.</p>
+
+  <div style="border:1px solid #D9C9A8;border-radius:8px;overflow:hidden;margin:0 0 12px;break-inside:avoid;">
+    <div style="background:#0A3868;color:#FFFFFF;font:700 11pt/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:11px 16px;">Hand-over list</div>
+    <div style="padding:4px 16px 14px;">
+      <div style="border-bottom:1px solid #E8DFCC;padding:13px 0;">
+        <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Turn off the demo date</div>
+        <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">The hub currently pretends the date is 20 August 2026 so the sample pages have something to show. Set <code style="font:400 11pt/1 monospace;background:#F2EDE3;padding:1px 4px;border-radius:3px;">DEMO_TODAY_ISO</code> to empty and it uses the real calendar.</div>
+      </div>
+      <div style="border-bottom:1px solid #E8DFCC;padding:13px 0;">
+        <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Remove the built-in sample content</div>
+        <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">The starting schedule, roster, staff, announcements, game reports, team stats and previous season are written into the file. Until they are emptied, they come back whenever the hub is opened on a fresh computer.</div>
+      </div>
+      <div style="border-bottom:1px solid #E8DFCC;padding:13px 0;">
+        <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Drop in the two images</div>
+        <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">The school crest in the sidebar, and the "C" logo that prints at the top of the game day roster sheet.</div>
+      </div>
+      <div style="padding:13px 0;">
+        <div style="font:700 12pt/1.4 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;">Real names for the principal and athletic director</div>
+        <div style="font:400 11.5pt/1.55 'Helvetica Neue',Arial,sans-serif;color:#4A4A4A;">Alternatively, add them as staff with the role Principal or Athletic Director and the hub will use those instead. That is the easier route and needs no file editing.</div>
+      </div>
+    </div>
+  </div>
+  <p style="font:400 11.5pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#6B6B6B;margin:0 0 30px;">None of these stop you using the hub. Until the first two are done, though, a fresh computer will always show sample content, and dates will read as August 2026.</p>
+
+  <h2 style="font:400 19pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 6px;break-after:avoid;">Part 4 — Handing out PINs</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">Everyone signs in with a four-digit PIN, and the PIN decides what they see. A coach PIN unlocks everything. A player PIN opens a read-only view of that player's own team, starting on their availability check-in.</p>
+  <ul style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;padding-left:22px;">
+    <li style="margin-bottom:7px;">Coach PINs are on each staff card, under Manage → Staff.</li>
+    <li style="margin-bottom:7px;">Player PINs are on each player card, under This Season → Roster, and are yours to set.</li>
+    <li>No two people can share a PIN. The hub will not let you save a duplicate.</li>
+  </ul>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">Send players their PIN with the hub's address and one line on what to do with it: sign in, check the schedule, answer yes or no to each event.</p>
+
+  <h2 style="font:400 19pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 6px;break-after:avoid;">Part 5 — Test run before you announce it</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">Twenty minutes, on the record computer, before anyone else gets the address.</p>
+  <ol style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;padding-left:22px;">
+    <li style="margin-bottom:7px;">Sign in with your own coach PIN. The overview should name the next real event on your schedule.</li>
+    <li style="margin-bottom:7px;">Sign in as a player using one player's PIN, on a phone if you can. Check the schedule looks right and the yes/no buttons work.</li>
+    <li style="margin-bottom:7px;">Enter a fake result on a past friendly, look at Stats to confirm the numbers moved, then remove it again.</li>
+    <li style="margin-bottom:7px;">Post an announcement and check it appears on the home page.</li>
+    <li>Print a game day roster sheet for your first fixture.</li>
+  </ol>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 30px;">If all five work, the hub is ready. Hand the coach guide to your staff.</p>
+
+  <h2 style="font:400 19pt/1.25 Georgia,serif;color:#0A3868;margin:0 0 6px;break-after:avoid;">Keeping a copy</h2>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;">Because the season lives in one browser on one computer, it is worth keeping something on paper or in a file that does not depend on that machine.</p>
+  <ul style="font:400 12pt/1.65 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0 0 12px;padding-left:22px;">
+    <li style="margin-bottom:7px;"><strong>Monthly:</strong> Manage → Reports → Export CSV, on both the attendance and season stats tabs. Save the files somewhere shared.</li>
+    <li style="margin-bottom:7px;"><strong>End of season:</strong> print or save the season stats report and the seasons page before closing the season.</li>
+    <li>Do not let anyone clear site data on the record computer without exporting first.</li>
+  </ul>
+  <p style="font:400 12pt/1.6 'Helvetica Neue',Arial,sans-serif;color:#1C1C1C;margin:0;">Closed seasons are locked once the season is closed, so past records cannot drift. That protects history inside the hub; it does not protect against the computer being wiped.</p>
+</doc-page>
+</x-dc>
+</body>
+</html>
